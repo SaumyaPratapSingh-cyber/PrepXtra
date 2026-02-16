@@ -237,6 +237,7 @@ export const dataEngineerRoadmap: RoadmapTrack = {
             label: 'Apache Spark',
             description: 'Distributed data processing for batch and streaming workloads.',
             parentId: 'de-big-data',
+            resources: [],
             content: {
                 overview: 'Apache Spark is an open-source distributed computing engine that can process massive datasets across a cluster of machines. Spark uses lazy evaluation — transformations (filter, map, join) build an execution plan, and actions (count, collect, write) trigger execution. Spark DataFrames provide a pandas-like API for distributed data. PySpark is the Python interface. Spark SQL lets you run SQL queries on distributed data. Spark Structured Streaming extends batch processing to real-time streaming. Spark runs on Databricks, AWS EMR, Google Dataproc, or standalone clusters.',
                 keyConcepts: [
@@ -256,6 +257,7 @@ export const dataEngineerRoadmap: RoadmapTrack = {
             label: 'Apache Kafka',
             description: 'Real-time data streaming and event-driven architectures.',
             parentId: 'de-big-data',
+            resources: [],
             content: {
                 overview: 'Apache Kafka is a distributed event streaming platform used by thousands of companies for real-time data pipelines. Producers publish messages (events) to topics. Consumers subscribe to topics and process messages. Topics are partitioned for parallelism and replicated for fault tolerance. Kafka Streams and Kafka Connect provide stream processing and integration with external systems. Use cases include real-time analytics, event sourcing, log aggregation, and decoupling microservices. Kafka handles millions of messages per second with low latency.',
                 keyConcepts: [
@@ -275,6 +277,7 @@ export const dataEngineerRoadmap: RoadmapTrack = {
             label: 'Hadoop',
             description: 'Distributed storage (HDFS) and the MapReduce processing model.',
             parentId: 'de-big-data',
+            resources: [],
             content: {
                 overview: 'Hadoop was the original big data framework that made it possible to store and process petabytes of data across commodity hardware. HDFS (Hadoop Distributed File System) stores data by splitting files into blocks distributed across a cluster. MapReduce is the processing model — Map functions process data in parallel across nodes, and Reduce functions aggregate the results. While MapReduce has been largely replaced by Spark (which is 10-100x faster due to in-memory processing), HDFS and the Hadoop ecosystem (Hive for SQL, HBase for NoSQL) are still used in many organizations. Understanding Hadoop provides context for modern big data tools.',
                 keyConcepts: [

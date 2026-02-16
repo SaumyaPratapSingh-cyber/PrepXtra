@@ -121,6 +121,7 @@ export const dataAnalystRoadmap: RoadmapTrack = {
             label: 'Joins & Subqueries',
             description: 'Combining multiple datasets with different join types and nested queries.',
             parentId: 'da-sql',
+            resources: [],
             content: {
                 overview: 'Joins combine rows from two or more tables based on a related column. INNER JOIN returns only matching rows. LEFT JOIN returns all rows from the left table plus matches from the right (nulls where no match). RIGHT JOIN is the reverse. FULL OUTER JOIN returns all rows from both tables. Subqueries are queries nested inside another query — used for filtering (WHERE id IN (SELECT ...)), derived tables (FROM (SELECT ...)), and correlated subqueries that reference the outer query. CTEs (WITH clause) are a cleaner alternative to subqueries for complex analysis.',
                 keyConcepts: [
@@ -139,6 +140,7 @@ export const dataAnalystRoadmap: RoadmapTrack = {
             label: 'Aggregations',
             description: 'SUM, AVG, MIN/MAX, GROUP BY, and window functions for analytical queries.',
             parentId: 'da-sql',
+            resources: [],
             content: {
                 overview: 'Aggregation is where SQL becomes a powerful analytical tool. GROUP BY collapses rows into groups, and aggregate functions (SUM, COUNT, AVG, MIN, MAX) calculate summary values per group. Window functions perform calculations across rows related to the current row without collapsing them: RANK() ranks rows within a partition, LAG()/LEAD() access previous/next rows for period-over-period comparisons, SUM() OVER() calculates running totals, and NTILE() divides rows into buckets. These are the queries that analysts write most frequently for business reporting and analysis.',
                 keyConcepts: [
@@ -191,6 +193,7 @@ export const dataAnalystRoadmap: RoadmapTrack = {
             label: 'Pandas & NumPy',
             description: 'Data cleaning, transformation, and numerical operations with Python.',
             parentId: 'da-python',
+            resources: [],
             content: {
                 overview: 'pandas is the most important Python library for data analysts. A DataFrame is a table with rows and columns (like a spreadsheet in code). Key operations include: reading data (pd.read_csv, read_excel, read_sql), filtering (df[df["price"] > 100]), selecting columns (df[["name", "price"]]), handling missing values (dropna, fillna), transforming data (apply, map, replace), and grouping (groupby with agg). Method chaining makes transformations readable. NumPy provides the underlying array operations and is faster than pure Python for numerical work.',
                 keyConcepts: [
@@ -210,6 +213,7 @@ export const dataAnalystRoadmap: RoadmapTrack = {
             label: 'Statistics',
             description: 'Hypothesis testing, distributions, probability, and regression.',
             parentId: 'da-python',
+            resources: [],
             content: {
                 overview: 'Statistics is the mathematical foundation of data analysis. Descriptive statistics (mean, median, mode, standard deviation, percentiles) summarize data. Probability distributions (normal, binomial, Poisson) model random processes. Hypothesis testing (t-tests, chi-square, ANOVA) determines whether observed differences are statistically significant or due to chance. Correlation measures the relationship between two variables. Regression analysis (linear and logistic) predicts outcomes based on input variables. A/B testing is a practical application of hypothesis testing used to compare two versions of a webpage, feature, or campaign.',
                 keyConcepts: [
@@ -272,6 +276,7 @@ export const dataAnalystRoadmap: RoadmapTrack = {
             label: 'Tableau / Power BI',
             description: 'Building interactive dashboards and business intelligence reports.',
             parentId: 'da-visualization',
+            resources: [],
             content: {
                 overview: 'Tableau and Power BI are the two dominant business intelligence tools. Tableau excels at creating beautiful, interactive visualizations with a drag-and-drop interface. Power BI integrates tightly with Microsoft products (Excel, Azure, SharePoint) and is more affordable. Both connect to databases, spreadsheets, and cloud services to build live dashboards. Tableau Public is free and a great way to build a portfolio. Power BI Desktop is also free. Key skills include creating calculated fields, building dashboard actions (filters, highlights), designing for mobile, and using parameters for user interactivity.',
                 keyConcepts: [
@@ -291,6 +296,7 @@ export const dataAnalystRoadmap: RoadmapTrack = {
             label: 'Matplotlib / Seaborn',
             description: 'Python visualization libraries for custom charts and statistical plots.',
             parentId: 'da-visualization',
+            resources: [],
             content: {
                 overview: 'matplotlib is the foundational Python visualization library — flexible but verbose. seaborn is built on top of matplotlib and creates beautiful statistical visualizations with minimal code. seaborn\'s strengths include heatmaps (correlation matrices), pair plots (all pairwise relationships), violin plots (distributions), and facet grids (small multiples). plotly creates interactive, web-based visualizations with hover tooltips, zoom, and click events. For data analysts, seaborn handles most needs. For interactive dashboards in Python, Streamlit or Dash let you build web apps from your analysis.',
                 keyConcepts: [

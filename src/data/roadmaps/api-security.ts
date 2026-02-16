@@ -30,7 +30,7 @@ export const apiSecurityRoadmap: RoadmapTrack = {
                     'Logging and Monitoring'
                 ],
                 practiceQuestions: [
-                    { question: 'What is BOLA (Broken Object Level Authorization)?', hint: 'The #1 vulnerability. User A can access User B\'s data by just changing an ID in the URL (e.g., /users/123 -> /users/456).', difficulty: 'high' }
+                    { question: 'What is BOLA (Broken Object Level Authorization)?', hint: 'The #1 vulnerability. User A can access User B\'s data by just changing an ID in the URL (e.g., /users/123 -> /users/456).', difficulty: 'hard' }
                 ],
                 bestPractices: [
                     'Never trust client input.',
@@ -49,6 +49,7 @@ export const apiSecurityRoadmap: RoadmapTrack = {
             label: 'Auth & Auth',
             description: 'Authentication (Who are you?) and Authorization (What can you do?).',
             parentId: 'as-root',
+            resources: [],
             content: {
                 overview: 'Authentication verifies identity (Login). Authorization verifies permissions (Access Control). Common mechanisms include JWT (JSON Web Tokens), OAuth2 (Social Login), and API Keys. A common flaw is "Broken Authentication" — allowing attackers to hijack sessions or brute-force credentials. Authorization flaws (like BOLA) happen when the server knows who you are, but fails to check if you own the resource you represent.',
                 keyConcepts: [
@@ -70,6 +71,7 @@ export const apiSecurityRoadmap: RoadmapTrack = {
             label: 'Input Validation',
             description: 'Sanitizing and validating all incoming data to prevent injection.',
             parentId: 'as-root',
+            resources: [],
             content: {
                 overview: 'Input validation ensures that data sent to the API matches expectations (type, length, format) and is safe. This prevents SQL Injection (where code is executed in the DB) and XSS (Cross-Site Scripting). Sanitization cleans data by removing unsafe characters. Use libraries like Zod, Joi, or class-validator instead of writing manual regex checks.',
                 keyConcepts: [
@@ -86,6 +88,7 @@ export const apiSecurityRoadmap: RoadmapTrack = {
             label: 'Rate Limiting',
             description: 'Preventing DoS attacks and brute force attempts.',
             parentId: 'as-root',
+            resources: [],
             content: {
                 overview: 'Rate limiting restricts the number of requests a user (or IP) can make in a given timeframe. This prevents Denial of Service (DoS) attacks that try to crash the server, and Brute Force attacks that guess passwords. Throttling slows down requests instead of blocking them completely. Common algorithms include Token Bucket and Fixed Window.',
                 keyConcepts: [
@@ -101,6 +104,7 @@ export const apiSecurityRoadmap: RoadmapTrack = {
             label: 'Encryption',
             description: 'TLS and encryption at rest.',
             parentId: 'as-root',
+            resources: [],
             content: {
                 overview: 'Encryption scrambles data so it is unreadable without a key. TLS (Transport Layer Security) encrypts data "in transit" between the client and server (HTTPS). Encryption "at rest" protects data stored in the database. Never store passwords in plain text — always hash them with a strong algorithm (Argon2, bcrypt) and salt.',
                 keyConcepts: [

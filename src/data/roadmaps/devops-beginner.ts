@@ -81,6 +81,7 @@ export const devopsBeginnerRoadmap: RoadmapTrack = {
             label: 'Git & GitHub',
             description: 'Source code management and version control.',
             parentId: 'db-root',
+            resources: [],
             content: {
                 overview: 'Git is the standard for version control. It tracks changes to code over time. GitHub (or GitLab/Bitbucket) is where that code is stored in the cloud. You need to know how to save work (commit), sync with the cloud (push/pull), and manage parallel work streams (branching). Infrastructure as Code means even your server configs will be stored in Git.',
                 keyConcepts: [
@@ -97,6 +98,7 @@ export const devopsBeginnerRoadmap: RoadmapTrack = {
             label: 'Cloud Concepts',
             description: 'Compute, Storage, and Networking in the cloud.',
             parentId: 'db-root',
+            resources: [],
             content: {
                 overview: 'The Cloud is just someone else\'s computer, but with APIs. The big providers are AWS, Azure, and Google Cloud (GCP). They provide three main primitives: Compute (VMs like EC2), Storage (Object storage like S3), and Networking (VPC, DNS, Load Balancers). DevOps is about stitching these services together to run applications reliably.',
                 keyConcepts: [
@@ -113,6 +115,7 @@ export const devopsBeginnerRoadmap: RoadmapTrack = {
             label: 'Containerization',
             description: 'Docker: Packaging applications for consistency.',
             parentId: 'db-root',
+            resources: [],
             content: {
                 overview: 'Containers solve the "it works on my machine" problem. A container packages code + dependencies + OS libraries into a single unit that runs the same everywhere. Docker is the standard tool. You write a Dockerfile to define the environment, build an Image, and run that image as a Container. Kubernetes (K8s) is then used to manage (orchestrate) many containers across many servers.',
                 keyConcepts: [

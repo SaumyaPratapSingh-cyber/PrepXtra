@@ -109,6 +109,7 @@ export const backendBeginnerRoadmap: RoadmapTrack = {
             label: 'Pick a Language',
             description: 'Choose one: Node.js (JavaScript), Python, or Go.',
             parentId: 'bb-root',
+            resources: [],
             content: {
                 overview: 'Unlike frontend (which is mostly JS), backend gives you many choices. \n\n1. **JavaScript (Node.js)**: Great if you already know frontend. One language for the whole stack. Huge ecosystem (NPM).\n2. **Python**: Easy to learn, readable. Great for AI, data, and fast prototyping (Django/FastAPI).\n3. **Go**: Fast, compiled, great for concurrency. Used by Google, Uber (microservices).\n\nPick one and stick with it until you can build a full API.',
                 keyConcepts: [
@@ -129,6 +130,7 @@ export const backendBeginnerRoadmap: RoadmapTrack = {
             label: 'API Basics',
             description: 'Application Programming Interfaces: building endpoints.',
             parentId: 'bb-root',
+            resources: [],
             content: {
                 overview: 'An API (Application Programming Interface) is how your server exposes functionality to the world. A REST API is a common standard where you use HTTP methods to perform actions on resources (URLs). For example, valid URLs might be `GET /users` (list users) or `POST /users` (create user). Your backend code listens for these requests, executes logic (like querying the DB), and returns data (usually in JSON format).',
                 keyConcepts: [

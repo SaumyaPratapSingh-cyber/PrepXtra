@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, Code, Layers, Play } from "lucide-react";
 import { DashboardPage } from "@/components/dashboard/DashboardPage";
 import axios from "axios";
@@ -99,8 +99,8 @@ const AssessmentConfigPage = () => {
                                             key={company}
                                             onClick={() => setSelectedCompany(selectedCompany === company ? "" : company)}
                                             className={`p-3 rounded-lg border transition-all ${selectedCompany === company
-                                                    ? "bg-blue-600/20 border-blue-500 text-white"
-                                                    : "bg-gray-800 border-gray-700 text-gray-400 hover:border-gray-500"
+                                                ? "bg-blue-600/20 border-blue-500 text-white"
+                                                : "bg-gray-800 border-gray-700 text-gray-400 hover:border-gray-500"
                                                 }`}
                                         >
                                             {company}

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { connectToDatabase } from '@/lib/db'; // Assuming this exists or similar
+import connectToDatabase from '@/lib/db';
 import User from '@/models/User';
-import { verifyAuth } from '@/lib/auth'; // Assuming auth helper
+
 
 // If connectToDatabase is not standard, I'll fallback to mongoose.connect
 import mongoose from 'mongoose';

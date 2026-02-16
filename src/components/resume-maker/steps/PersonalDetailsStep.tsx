@@ -3,7 +3,7 @@
 import React from 'react';
 import { PersonalDetails } from '../types';
 import { Input } from '@/components/ui/Input';
-import { Label } from '@/components/ui/Label'; // Assuming a Label component exists or I'll use native label
+
 
 // Note: If Label component doesn't exist, I'll use a simple <label>
 // Let's assume standard usage for now.

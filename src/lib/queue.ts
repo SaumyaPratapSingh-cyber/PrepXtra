@@ -60,7 +60,7 @@ setInterval(() => processMemoryQueue(EMAIL_QUEUE_NAME), 1000); // Process 1 emai
 export const addToQueue = async (queueName: string, data: any) => {
     if (isRedisAvailable) {
         try {
-            const queue = new Queue(queueName, { connection });
+            const queue = new Queue(queueName, { connection: connection as any });
             await queue.add('job', data);
             await queue.close();
             return true;
@@ -102,7 +102,7 @@ export const registerWorker = (queueName: string, processor: ProcessorFunction) 
     try {
         const worker = new Worker(queueName, async (job) => {
             await processor(job);
-        }, { connection });
+        }, { connection: connection as any });
 
         worker.on('failed', (job, err) => {
             console.error(`${queueName} Job failed:`, err);
