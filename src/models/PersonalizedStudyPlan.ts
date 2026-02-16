@@ -26,6 +26,12 @@ const PersonalizedStudyPlanSchema = new Schema(
             weaknesses: [String],
             extractedSkills: [String],
             gapAnalysis: String,
+            strategicRecommendation: String,
+            careerOpportunities: [String], // New: Career paths based on resume
+        },
+        selectedRoadmapId: {
+            type: String, // New: Link to general tracker roadmap (e.g., 'fullstack')
+            default: 'fullstack'
         },
         roadmap: [
             {
@@ -37,7 +43,7 @@ const PersonalizedStudyPlanSchema = new Schema(
                     {
                         title: String,
                         url: String,
-                        type: { type: String, enum: ["video", "article", "problem"] },
+                        type: { type: String },
                     },
                 ],
                 completed: { type: Boolean, default: false },
@@ -45,14 +51,21 @@ const PersonalizedStudyPlanSchema = new Schema(
         ],
         curatedQuestions: [
             {
-                problemId: { type: Schema.Types.ObjectId, ref: "DSAProblem" }, // Ideally link to existing DB problems
+                problemId: { type: Schema.Types.ObjectId, ref: "DSAProblem" },
                 title: String,
                 difficulty: String,
-                pattern: String, // e.g., "Two Pointers", "Sliding Window"
-                companyTag: String, // "Google", "Amazon"
+                pattern: String,
+                companyTag: String,
                 solved: { type: Boolean, default: false },
-                externalLink: String, // If not in our DB
+                externalLink: String,
             },
+        ],
+        interviewQuestions: [
+            {
+                question: String,
+                answer: String,
+                category: String, // e.g., 'Behavioral', 'Technical', 'System Design'
+            }
         ],
         generatedAt: {
             type: Date,
@@ -65,6 +78,6 @@ const PersonalizedStudyPlanSchema = new Schema(
 );
 
 // Prevent model overwrite in development
-const PersonalizedStudyPlan = models.PersonalizedStudyPlan || model("PersonalizedStudyPlan", PersonalizedStudyPlanSchema);
+const PersonalizedStudyPlan = models.PersonalizedStudyPlanTrack || model("PersonalizedStudyPlanTrack", PersonalizedStudyPlanSchema);
 
 export default PersonalizedStudyPlan;

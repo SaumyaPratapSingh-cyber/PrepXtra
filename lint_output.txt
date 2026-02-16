@@ -1,0 +1,679 @@
+
+> web@0.1.0 lint
+> eslint
+
+
+E:\PrepXtra\web\list-models.js
+  1:9   warning  'GoogleGenerativeAI' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  1:32  error    A `require()` style import is forbidden                  @typescript-eslint/no-require-imports
+  2:12  error    A `require()` style import is forbidden                  @typescript-eslint/no-require-imports
+  3:16  error    A `require()` style import is forbidden                  @typescript-eslint/no-require-imports
+  4:14  error    A `require()` style import is forbidden                  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\audit-db.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\bulk-repair.js
+    1:18  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+    2:16  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  381:46  warning  'slug' is defined but never used         @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\scripts\check-remaining.js
+  1:11  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\check-starter.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\count-broken.js
+    2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+    3:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  109:5   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  113:5   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\debug-seed.ts
+  52:51  error    Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+  53:29  warning  'quiz' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\scripts\deep-audit.js
+   2:1   error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   3:18  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  55:19  warning  '_' is defined but never used            @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\scripts\final-desc-check.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\final-repair.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\fix-dsa-descriptions.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  5:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  6:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\fix-dsa-descriptions.ts
+  71:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\scripts\fix-placeholders.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\full-audit.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\last-20-fix.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\list-bad.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\list-missing.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  5:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\mega-repair-1.js
+  3:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\mega-repair-2.js
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\mega-repair-3.js
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\mega-repair-4.js
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\perfect-sync.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  5:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\repair-problem.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\seed-company-questions.js
+  2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\seed-company-questions.ts
+    2:8   warning  'mongoose' is defined but never used      @typescript-eslint/no-unused-vars
+  142:26  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\scripts\seed-core-subjects.ts
+  43:13  error  'totalContent' is never reassigned. Use 'const' instead  prefer-const
+  59:51  error  Unexpected any. Specify a different type                 @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\scripts\seed-data\systems-networking\theory-of-computation-part2.tmp.ts
+  3:12  error  Parsing error: ';' expected
+
+E:\PrepXtra\web\scripts\seed-dsa-comprehensive.ts
+  239:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\scripts\seed-dsa.ts
+  130:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\scripts\seed-jobs.ts
+  4:8  warning  'Job' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\scripts\test-api.js
+  1:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\test-apis.js
+  1:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\test-engines.js
+  1:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\test-gemini.js
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:32  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\test-pdf-parse.js
+  2:18  error    A `require()` style import is forbidden    @typescript-eslint/no-require-imports
+  3:7   warning  'fs' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  3:12  error    A `require()` style import is forbidden    @typescript-eslint/no-require-imports
+  4:7   warning  'path' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  4:14  error    A `require()` style import is forbidden    @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\test-piston.js
+  1:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\update-all-metadata.js
+   1:18  error    A `require()` style import is forbidden           @typescript-eslint/no-require-imports
+   3:14  error    A `require()` style import is forbidden           @typescript-eslint/no-require-imports
+   4:16  error    A `require()` style import is forbidden           @typescript-eslint/no-require-imports
+   9:15  error    A `require()` style import is forbidden           @typescript-eslint/no-require-imports
+  10:15  error    A `require()` style import is forbidden           @typescript-eslint/no-require-imports
+  11:15  error    A `require()` style import is forbidden           @typescript-eslint/no-require-imports
+  30:10  warning  'generateCppSignature' is defined but never used  @typescript-eslint/no-unused-vars
+  32:11  warning  'typeMap' is assigned a value but never used      @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\scripts\update-descriptions.js
+   2:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   4:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   5:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  10:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  11:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\update-starter-code.js
+   1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   4:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   9:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  10:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  11:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+E:\PrepXtra\web\scripts\verify-core-api.ts
+  13:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  53:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\admin\trigger-scrape\route.ts
+  31:25  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  39:26  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  55:18  warning  'dbError' is defined but never used       @typescript-eslint/no-unused-vars
+  78:26  warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  97:21  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\assessment\config\route.ts
+  3:8  warning  'mongoose' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\api\assessment\result\[id]\route.ts
+  10:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  18:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  19:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  32:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\assessment\start\route.ts
+  11:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  17:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\auth\logout\route.ts
+  18:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\auth\register\route.ts
+  73:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\auth\verify\route.ts
+  63:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\core-progress\route.ts
+  20:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  31:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  70:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\core-subjects\route.ts
+  38:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  61:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\core-topics\[slug]\route.ts
+  37:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\execute-local\route.ts
+   12:40  warning  'functionName' is assigned a value but never used            @typescript-eslint/no-unused-vars
+   22:13  error    'executionResults' is never reassigned. Use 'const' instead  prefer-const
+   33:34  error    Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+   42:37  warning  'stderr' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+   45:26  error    Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+   57:34  error    Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+   77:34  error    Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+   86:37  warning  'stderr' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+   89:26  error    Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+  101:34  error    Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+  122:19  error    Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\execute\route.ts
+   28:18  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+   32:23  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  152:30  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  156:33  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  171:44  warning  'functionName' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  181:26  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  195:24  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  223:65  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  249:31  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  267:26  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  267:34  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  272:40  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  273:40  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  274:67  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  277:21  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\newsletter\route.ts
+   2:10  warning  'connectToDatabase' is defined but never used  @typescript-eslint/no-unused-vars
+   4:10  warning  'verifyAuth' is defined but never used         @typescript-eslint/no-unused-vars
+  50:21  error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+  71:14  warning  'error' is defined but never used              @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\api\personalized-plan\route.ts
+  6:27  warning  'req' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\api\problems\[slug]\route.ts
+  23:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\problems\route.ts
+  13:13  error  'query' is never reassigned. Use 'const' instead  prefer-const
+  13:20  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  26:21  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\resume-upload\route.ts
+   24:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   66:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   79:30  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+   86:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  104:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  138:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  149:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\submissions\route.ts
+   3:10  warning  'Schema' is defined but never used        @typescript-eslint/no-unused-vars
+   3:18  warning  'model' is defined but never used         @typescript-eslint/no-unused-vars
+   3:25  warning  'models' is defined but never used        @typescript-eslint/no-unused-vars
+  43:21  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:21  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\api\user\profile\route.ts
+  16:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  80:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\auth\login\page.tsx
+   8:19  warning  'Lock' is defined but never used                                 @typescript-eslint/no-unused-vars
+   8:25  warning  'Mail' is defined but never used                                 @typescript-eslint/no-unused-vars
+  39:23  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  64:28  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+E:\PrepXtra\web\src\app\auth\register\page.tsx
+  41:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\auth\verify\page.tsx
+  42:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\dashboard\assessment\[type]\page.tsx
+  164:14  error  'AnimatePresence' is not defined  react/jsx-no-undef
+
+E:\PrepXtra\web\src\app\dashboard\assessment\analysis\[id]\page.tsx
+   12:5    warning  'RefreshCw' is defined but never used     @typescript-eslint/no-unused-vars
+   15:5    warning  'Activity' is defined but never used      @typescript-eslint/no-unused-vars
+   16:5    warning  'Save' is defined but never used          @typescript-eslint/no-unused-vars
+   19:5    warning  'ExternalLink' is defined but never used  @typescript-eslint/no-unused-vars
+  242:107  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\dashboard\assessment\attempt\page.tsx
+  44:25  warning  'setShowWarning' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  45:12  warning  'showPalette' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  45:25  warning  'setShowPalette' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  78:12  warning  'terminationReason' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\assessment\page.tsx
+  37:5  warning  'id' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\core-subjects\[slug]\[topicSlug]\page.tsx
+    7:32  warning  'ChevronRight' is defined but never used          @typescript-eslint/no-unused-vars
+    7:46  warning  'Menu' is defined but never used                  @typescript-eslint/no-unused-vars
+   18:48  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  116:11  warning  'mainContent' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\core-subjects\[slug]\layout.tsx
+   8:5   warning  'BookOpen' is defined but never used         @typescript-eslint/no-unused-vars
+  10:5   warning  'Circle' is defined but never used           @typescript-eslint/no-unused-vars
+  16:18  warning  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+  28:44  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  29:42  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  32:46  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  46:36  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+  47:55  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\dashboard\core-subjects\[slug]\page.tsx
+   5:8   warning  'Link' is defined but never used                           @typescript-eslint/no-unused-vars
+  14:5   warning  'CheckCircle2' is defined but never used                   @typescript-eslint/no-unused-vars
+  23:44  error    Unexpected any. Specify a different type                   @typescript-eslint/no-explicit-any
+  24:42  error    Unexpected any. Specify a different type                   @typescript-eslint/no-explicit-any
+  29:31  warning  'setCompletedTopicIds' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  45:27  error    Unexpected any. Specify a different type                   @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\dashboard\core-subjects\page.tsx
+  14:20  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  18:12  warning  'subjects' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  18:46  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  20:12  warning  'progress' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  20:22  warning  'setProgress' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  20:46  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  33:11  warning  'userId' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  51:23  warning  'mockProgress' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  62:86  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\dashboard\general-track\assessments\page.tsx
+  38:5  warning  'id' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\general-track\dsa\[slug]\page.tsx
+    4:42  warning  'CheckCircle2' is defined but never used                                                                         @typescript-eslint/no-unused-vars
+    4:63  warning  'Clock' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+   17:44  error    Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+   24:8   warning  React Hook useEffect has a missing dependency: 'fetchProblem'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   62:73  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                  react/no-unescaped-entities
+   62:94  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                  react/no-unescaped-entities
+  116:71  error    Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+  156:80  error    Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+  218:73  error    Unexpected any. Specify a different type                                                                         @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\dashboard\general-track\dsa\page.tsx
+   4:18  warning  'Filter' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+   4:45  warning  'Clock' is defined but never used                                                                                 @typescript-eslint/no-unused-vars
+   4:65  warning  'CheckCircle2' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+  13:46  error    Unexpected any. Specify a different type                                                                          @typescript-eslint/no-explicit-any
+  21:8   warning  React Hook useEffect has a missing dependency: 'fetchProblems'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\PrepXtra\web\src\app\dashboard\general-track\interviews\page.tsx
+    4:16   warning  'Sparkles' is defined but never used                             @typescript-eslint/no-unused-vars
+    4:26   warning  'MessageCircle' is defined but never used                        @typescript-eslint/no-unused-vars
+    4:72   warning  'Info' is defined but never used                                 @typescript-eslint/no-unused-vars
+   45:18   warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+  106:100  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  106:104  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+E:\PrepXtra\web\src\app\dashboard\general-track\page.tsx
+  6:10  warning  'cn' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\general-track\roadmaps\page.tsx
+  3:10  warning  'useState' is defined but never used      @typescript-eslint/no-unused-vars
+  4:15  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\general-track\subjects\page.tsx
+  3:10  warning  'useState' is defined but never used     @typescript-eslint/no-unused-vars
+  4:26  warning  'CheckCircle' is defined but never used  @typescript-eslint/no-unused-vars
+  4:39  warning  'Smartphone' is defined but never used   @typescript-eslint/no-unused-vars
+  6:10  warning  'cn' is defined but never used           @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\newsletter\page.tsx
+  100:55  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+E:\PrepXtra\web\src\app\dashboard\profile\page.tsx
+  4:68  warning  'Calendar' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\app\dashboard\resume-track\company-select\page.tsx
+   4:29   warning  'TrendingUp' is defined but never used                           @typescript-eslint/no-unused-vars
+   4:53   warning  'Check' is defined but never used                                @typescript-eslint/no-unused-vars
+   4:60   warning  'Filter' is defined but never used                               @typescript-eslint/no-unused-vars
+   4:76   warning  'Briefcase' is defined but never used                            @typescript-eslint/no-unused-vars
+   4:87   warning  'Globe' is defined but never used                                @typescript-eslint/no-unused-vars
+  13:48   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  35:49   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  71:56   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  71:116  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+E:\PrepXtra\web\src\app\dashboard\resume-track\personalized\page.tsx
+    5:17   warning  'Brain' is defined but never used                                @typescript-eslint/no-unused-vars
+    7:5    warning  'FileText' is defined but never used                             @typescript-eslint/no-unused-vars
+    7:29   warning  'CheckCircle2' is defined but never used                         @typescript-eslint/no-unused-vars
+   17:38   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   72:38   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:35   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  295:45   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  295:308  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  309:63   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  321:80   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  351:71   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  378:69   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\app\dashboard\resume-track\upload\page.tsx
+   16:38  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+   82:25  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  277:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                      react/no-unescaped-entities
+  346:46  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+E:\PrepXtra\web\src\app\page.tsx
+  4:22  warning  'Terminal' is defined but never used      @typescript-eslint/no-unused-vars
+  4:32  warning  'Cpu' is defined but never used           @typescript-eslint/no-unused-vars
+  4:37  warning  'Globe' is defined but never used         @typescript-eslint/no-unused-vars
+  4:58  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\assessment\AssessmentGuidelines.tsx
+  6:39  warning  'ShieldAlert' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\core-subjects\ContentViewer.tsx
+   9:24  warning  'BookOpen' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+   9:34  warning  'ExternalLink' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  12:11  warning  'CodeExample' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  26:35  warning  'resources' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  38:32  warning  'node' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  38:79  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  73:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+E:\PrepXtra\web\src\components\core-subjects\ProgressTracker.tsx
+   6:10  warning  'cn' is defined but never used                 @typescript-eslint/no-unused-vars
+  18:5   warning  'totalSubjects' is defined but never used      @typescript-eslint/no-unused-vars
+  19:5   warning  'completedSubjects' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\core-subjects\QuizComponent.tsx
+   41:58  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   45:44  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   50:41  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   80:15  warning  'finalScore' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  106:15  warning  'percentage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\core-subjects\SubjectCard.tsx
+  34:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  41:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\components\core-subjects\TopicList.tsx
+   9:5  warning  'Circle' is defined but never used    @typescript-eslint/no-unused-vars
+  14:5  warning  'FileText' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\dashboard\Sidebar.tsx
+  12:5   warning  'Settings' is defined but never used         @typescript-eslint/no-unused-vars
+  13:5   warning  'LogOut' is defined but never used           @typescript-eslint/no-unused-vars
+  18:5   warning  'ShieldCheck' is defined but never used      @typescript-eslint/no-unused-vars
+  21:10  warning  'useState' is defined but never used         @typescript-eslint/no-unused-vars
+  22:18  warning  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\landing\BackgroundBeams.tsx
+  7:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\components\landing\FeatureBento.tsx
+   4:10  warning  'Brain' is defined but never used                                @typescript-eslint/no-unused-vars
+   4:36  warning  'Trophy' is defined but never used                               @typescript-eslint/no-unused-vars
+   4:54  warning  'MessageSquare' is defined but never used                        @typescript-eslint/no-unused-vars
+   4:69  warning  'MonitorPlay' is defined but never used                          @typescript-eslint/no-unused-vars
+   5:10  warning  'cn' is defined but never used                                   @typescript-eslint/no-unused-vars
+  49:31  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+E:\PrepXtra\web\src\components\landing\StarsBackground.tsx
+   2:46  warning  'RefObject' is defined but never used                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  20:40  error    Unexpected any. Specify a different type                                                                                                                                                                                                                           @typescript-eslint/no-explicit-any
+  23:72  error    Unexpected any. Specify a different type                                                                                                                                                                                                                           @typescript-eslint/no-explicit-any
+  63:52  warning  The ref value 'canvasRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'canvasRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+E:\PrepXtra\web\src\components\landing\TechShowcase.tsx
+  13:9   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+E:\PrepXtra\web\src\components\landing\TechShowcase.tsx:13:9
+  11 |
+  12 |     useEffect(() => {
+> 13 |         setBars(Array.from({ length: 20 }, () => Math.floor(Math.random() * 100)));
+     |         ^^^^^^^ Avoid calling setState() directly within an effect
+  14 |
+  15 |         const interval = setInterval(() => {
+  16 |             setBars(prev => {  react-hooks/set-state-in-effect
+  46:33  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react/no-unescaped-entities
+  46:40  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react/no-unescaped-entities
+  46:54  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react/no-unescaped-entities
+  90:68  error  Comments inside children section of tag should be placed inside braces                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/jsx-no-comment-textnodes
+
+E:\PrepXtra\web\src\components\resume-maker\ResumeBuilderWizard.tsx
+   11:8   warning  'CertificationsStep' is defined but never used  @typescript-eslint/no-unused-vars
+   14:47  warning  'FileText' is defined but never used            @typescript-eslint/no-unused-vars
+   64:58  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  139:29  warning  'blob' is defined but never used                @typescript-eslint/no-unused-vars
+  139:35  warning  'url' is defined but never used                 @typescript-eslint/no-unused-vars
+  139:49  warning  'error' is defined but never used               @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\resume-maker\ResumePDF.tsx
+  2:50  warning  'Font' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\resume-maker\steps\CertificationsStep.tsx
+  4:10  warning  'ResumeData' is defined but never used  @typescript-eslint/no-unused-vars
+  5:10  warning  'Input' is defined but never used       @typescript-eslint/no-unused-vars
+  6:10  warning  'Button' is defined but never used      @typescript-eslint/no-unused-vars
+  7:10  warning  'Plus' is defined but never used        @typescript-eslint/no-unused-vars
+  7:16  warning  'Trash2' is defined but never used      @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\resume-maker\steps\EducationStep.tsx
+  52:51  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  52:65  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  56:30  warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\resume-maker\steps\ExperienceStep.tsx
+  35:75  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  58:52  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  58:67  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  62:30  warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\resume-maker\steps\PersonalDetailsStep.tsx
+  6:10  warning  'Label' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\resume-maker\steps\ProjectsStep.tsx
+  33:72  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  55:50  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  55:62  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  59:30  warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\resume-maker\steps\SkillsStep.tsx
+  6:10  warning  'Button' is defined but never used  @typescript-eslint/no-unused-vars
+  7:10  warning  'Plus' is defined but never used    @typescript-eslint/no-unused-vars
+  7:16  warning  'X' is defined but never used       @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\roadmap\DayWiseTracker.tsx
+  5:10  warning  'motion' is defined but never used   @typescript-eslint/no-unused-vars
+  6:23  warning  'DayPlan' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\roadmap\RoadmapCanvas.tsx
+    7:18  warning  'useAnimation' is defined but never used  @typescript-eslint/no-unused-vars
+    8:58  warning  'RefreshCw' is defined but never used     @typescript-eslint/no-unused-vars
+  299:45  warning  'idx' is defined but never used           @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\components\ui\CodeEditor.tsx
+    4:33  warning  'useRef' is defined but never used                               @typescript-eslint/no-unused-vars
+    5:46  warning  'Terminal' is defined but never used                             @typescript-eslint/no-unused-vars
+   18:87  warning  'onSubmit' is defined but never used                             @typescript-eslint/no-unused-vars
+   77:27  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   88:36  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  118:35  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  140:27  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  157:27  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  187:23  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  454:81  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  454:85  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+E:\PrepXtra\web\src\components\ui\ProfileForm.tsx
+  81:18  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\hooks\usePyodide.ts
+    3:31  warning  'useRef' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+    6:22  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+    7:36  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+   24:9   error    Error: Cannot access variable before it is declared
+
+`loadPyodide` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+E:\PrepXtra\web\src\hooks\usePyodide.ts:24:9
+  22 |
+  23 |     useEffect(() => {
+> 24 |         loadPyodide();
+     |         ^^^^^^^^^^^ `loadPyodide` accessed before it is declared
+  25 |     }, []);
+  26 |
+  27 |     const loadPyodide = async () => {
+
+E:\PrepXtra\web\src\hooks\usePyodide.ts:27:5
+   25 |     }, []);
+   26 |
+>  27 |     const loadPyodide = async () => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  28 |         // If already loaded, just mark ready
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  29 |         if (pyodideInstance) {
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 109 |         await pyodideLoadingPromise;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 110 |     };
+      | ^^^^^^^ `loadPyodide` is declared here
+  111 |
+  112 |     const runPython = useCallback(async (code: string): Promise<PyodideResult> => {
+  113 |         if (!pyodideInstance) {  react-hooks/immutability
+   41:27  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+   54:66  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+   67:52  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+  101:27  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+  152:23  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+  159:22  warning  '_' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\lib\auth.ts
+  21:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  23:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\lib\mail.ts
+  44:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\lib\queue.ts
+    1:25  warning  'QueueEvents' is defined but never used   @typescript-eslint/no-unused-vars
+   28:25  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+   60:59  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   67:18  warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+   93:40  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  113:14  warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+
+E:\PrepXtra\web\src\lib\scrapers\index.ts
+   52:14  warning  'e' is defined but never used                     @typescript-eslint/no-unused-vars
+   73:9   warning  'companyType' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  116:18  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  124:47  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  125:14  warning  'e' is defined but never used                     @typescript-eslint/no-unused-vars
+  127:53  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\src\lib\services\AIService.ts
+   14:14  error    Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+   15:23  error    Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+   52:13  error    'base' is never reassigned. Use 'const' instead           prefer-const
+  104:36  error    Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  109:25  error    Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  126:17  error    'selectedTrack' is never reassigned. Use 'const' instead  prefer-const
+  148:29  error    Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  157:30  warning  'e' is defined but never used                             @typescript-eslint/no-unused-vars
+  166:31  error    Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  208:25  error    Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+
+E:\PrepXtra\web\verify-gemini.js
+  1:32  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  4:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Γ£û 401 problems (257 errors, 144 warnings)
+  5 errors and 0 warnings potentially fixable with the `--fix` option.
+

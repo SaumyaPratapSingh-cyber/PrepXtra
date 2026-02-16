@@ -20,6 +20,7 @@ import {
 
 const sidebarItems = [
   { label: "Overview", href: "/dashboard", icon: LayoutDashboard },
+  { label: "3D Interview", href: "/dashboard/3d-interview", icon: Cpu },
   { label: "Resume Maker", href: "/dashboard/resume-maker", icon: FileText },
   { label: "Resume Track", href: "/dashboard/resume-track", icon: FileText },
   { label: "General Track", href: "/dashboard/general-track", icon: BookOpen },

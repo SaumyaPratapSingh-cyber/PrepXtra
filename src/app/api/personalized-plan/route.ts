@@ -36,8 +36,10 @@ export async function GET(req: NextRequest) {
                     strengths: ["Problem Solving", "Data Structures", "Communication"],
                     weaknesses: ["System Design", "Cloud Infrastructure"],
                     extractedSkills: ["React", "Node.js", "MongoDB"],
-                    gapAnalysis: "We've generated a starter plan for you. Upload your resume to refine it!"
+                    gapAnalysis: "We've generated a starter plan for you. Upload your resume to refine it!",
+                    careerOpportunities: ["Full Stack Developer", "Backend Engineer", "Software Architect"]
                 },
+                selectedRoadmapId: "fullstack",
                 roadmap: [
                     {
                         week: 1,
@@ -62,6 +64,10 @@ export async function GET(req: NextRequest) {
                 curatedQuestions: [
                     { title: "Design Twitter", difficulty: "Hard", pattern: "System Design", companyTag: user.targetCompany || "Tech Corp" },
                     { title: "LRU Cache", difficulty: "Medium", pattern: "Linked List", companyTag: user.targetCompany || "Tech Corp" }
+                ],
+                interviewQuestions: [
+                    { question: "Tell me about yourself.", answer: "Expert guide on answering this effectively.", category: "Behavioral" },
+                    { question: "Explain event loop in Node.js", answer: "A concise technical explanation.", category: "Technical" }
                 ]
             });
         }

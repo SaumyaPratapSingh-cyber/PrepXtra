@@ -81,7 +81,9 @@ export default function ResumeUploadPage() {
             }
         } catch (error: any) {
             console.error("Analysis failed", error);
-            setError(error.response?.data?.error || "Failed to analyze resume. Please try again.");
+            const serverMsg = error.response?.data?.error || "Failed to analyze resume";
+            const serverDetails = error.response?.data?.details || error.response?.data?.message || "";
+            setError(serverDetails ? `${serverMsg}: ${serverDetails}` : serverMsg);
         } finally {
             setIsAnalyzing(false);
         }

@@ -91,6 +91,14 @@ export default function DashboardHome() {
 
   const quickActions = [
     {
+      label: "3D Mock Interview",
+      description: "Voice-based AI rounds",
+      icon: Sparkles,
+      route: "/dashboard/3d-interview",
+      gradient: "from-indigo-500 to-purple-600",
+      isNew: true,
+    },
+    {
       label: "DSA Practice",
       description: "Solve curated problems",
       icon: Code2,
@@ -106,9 +114,9 @@ export default function DashboardHome() {
     },
     {
       label: "AI Interviews",
-      description: "Practice mock rounds",
+      description: "3D Voice Mock Rounds",
       icon: Brain,
-      route: "/dashboard/general-track/interviews",
+      route: "/dashboard/3d-interview",
       gradient: "from-purple-500 to-pink-500",
     },
     {
@@ -218,9 +226,16 @@ export default function DashboardHome() {
                 >
                   <action.icon className="h-5 w-5 text-white" />
                 </div>
-                <h3 className="text-sm font-bold text-white mb-0.5 group-hover:text-orange-400 transition-colors">
-                  {action.label}
-                </h3>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <h3 className="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">
+                    {action.label}
+                  </h3>
+                  {(action as any).isNew && (
+                    <span className="text-[8px] font-black px-1.5 py-0.5 rounded bg-indigo-500 text-white uppercase tracking-tighter">
+                      New
+                    </span>
+                  )}
+                </div>
                 <p className="text-[11px] text-slate-500">{action.description}</p>
               </motion.div>
             ))}

@@ -10,6 +10,7 @@ export interface IAssessmentResult extends Document {
     accuracy: number; // percentage
     timeTaken: number; // in seconds
     strictModeViolations: number;
+    status: 'completed' | 'failed_breach';
     answers: {
         questionId: mongoose.Types.ObjectId;
         userAnswer: string;
@@ -30,6 +31,7 @@ const AssessmentResultSchema: Schema = new Schema(
         accuracy: { type: Number, required: true },
         timeTaken: { type: Number, required: true }, // Total duration
         strictModeViolations: { type: Number, default: 0 },
+        status: { type: String, enum: ['completed', 'failed_breach'], default: 'completed' },
         answers: [
             {
                 questionId: { type: Schema.Types.ObjectId, ref: 'Question', required: true },

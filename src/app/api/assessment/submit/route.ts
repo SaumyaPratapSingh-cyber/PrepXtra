@@ -7,7 +7,7 @@ import '@/lib/db';
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        const { userId, type, company, category, answers, timeTaken, strictModeViolations } = body;
+        const { userId, type, company, category, answers, timeTaken, strictModeViolations, isBreach } = body;
 
         // answers is an object/map: { [questionId]: "Selected Option" }
 
@@ -46,6 +46,18 @@ export async function POST(req: NextRequest) {
         const totalQuestions = questionIds.length;
         const accuracy = totalQuestions > 0 ? (score / totalQuestions) * 100 : 0;
 
+        // Calculate section-wise breakdown
+        const sectionMetrics: Record<string, { score: number, total: number }> = {};
+        processedAnswers.forEach(ans => {
+            const q = questionMap.get(ans.questionId.toString());
+            if (q) {
+                const cat = q.category || 'General';
+                if (!sectionMetrics[cat]) sectionMetrics[cat] = { score: 0, total: 0 };
+                sectionMetrics[cat].total += 1;
+                if (ans.isCorrect) sectionMetrics[cat].score += 1;
+            }
+        });
+
         const result = await AssessmentResult.create({
             userId,
             type,
@@ -55,8 +67,12 @@ export async function POST(req: NextRequest) {
             totalQuestions,
             accuracy,
             timeTaken,
-            strictModeViolations,
+            strictModeViolations: isBreach ? -1 : (strictModeViolations || 0), // -1 indicates proctoring termination
+            status: isBreach ? 'failed_breach' : 'completed',
             answers: processedAnswers,
+            // We'll store sectionMetrics as a JSON or extend the model if needed. 
+            // For now, let's just return it in the response for the immediate UI, 
+            // and we can add a 'metadata' field to the model for permanent storage if the schema allows.
         });
 
         return NextResponse.json({
@@ -64,7 +80,8 @@ export async function POST(req: NextRequest) {
             resultId: result._id,
             score,
             totalQuestions,
-            accuracy
+            accuracy,
+            sectionMetrics // Added for the analysis page to consume
         });
 
     } catch (error) {
