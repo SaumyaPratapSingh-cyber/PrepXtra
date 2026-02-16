@@ -1,0 +1,722 @@
+[
+  {
+    "slug": "user-input-output",
+    "title": "User Input / Output",
+    "fn": "userInputOutput",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "basics"
+  },
+  {
+    "slug": "find-union",
+    "title": "Find Union",
+    "fn": "findUnion",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "find-missing-number",
+    "title": "Find Missing Number",
+    "fn": "findMissingNumber",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "max-consecutive-ones",
+    "title": "Max Consecutive Ones",
+    "fn": "maxConsecutiveOnes",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "find-the-number-that-appears-once",
+    "title": "Find the number that appears once",
+    "fn": "findTheNumberThatAppearsOnce",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "kadane-s-algorithm",
+    "title": "Kadane's Algorithm",
+    "fn": "kadaneSAlgorithm",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "print-subarray-with-maximum-subarray-sum",
+    "title": "Print Subarray with Maximum Subarray Sum",
+    "fn": "printSubarrayWithMaximumSubarraySum",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "stock-buy-and-sell",
+    "title": "Stock Buy and Sell",
+    "fn": "stockBuyAndSell",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "rearrange-array-elements-by-sign",
+    "title": "Rearrange Array Elements by Sign",
+    "fn": "rearrangeArrayElementsBySign",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "next-permutation",
+    "title": "Next Permutation",
+    "fn": "nextPermutation",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "leaders-in-an-array",
+    "title": "Leaders in an Array",
+    "fn": "leadersInAnArray",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "set-matrix-zeros",
+    "title": "Set Matrix Zeros",
+    "fn": "setMatrixZeros",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "pascal-s-triangle",
+    "title": "Pascal's Triangle",
+    "fn": "pascalSTriangle",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "3-sum",
+    "title": "3 Sum",
+    "fn": "3Sum",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "4-sum",
+    "title": "4 Sum",
+    "fn": "4Sum",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "count-subarrays-with-xor-as-k",
+    "title": "Count Subarrays with XOR as K",
+    "fn": "countSubarraysWithXorAsK",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "merge-overlapping-subintervals",
+    "title": "Merge Overlapping Subintervals",
+    "fn": "mergeOverlappingSubintervals",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "merge-two-sorted-arrays-without-extra-space",
+    "title": "Merge two sorted arrays without extra space",
+    "fn": "mergeTwoSortedArraysWithoutExtraSpace",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "find-repeating-and-missing-number",
+    "title": "Find Repeating and Missing Number",
+    "fn": "findRepeatingAndMissingNumber",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "count-inversions",
+    "title": "Count Inversions",
+    "fn": "countInversions",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "reverse-pairs",
+    "title": "Reverse Pairs",
+    "fn": "reversePairs",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "arrays"
+  },
+  {
+    "slug": "clone-a-linked-list-with-random-pointers",
+    "title": "Clone a Linked List with random pointers",
+    "fn": "cloneALinkedListWithRandomPointers",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "linked-list"
+  },
+  {
+    "slug": "maximum-width-of-binary-tree",
+    "title": "Maximum Width of Binary Tree ",
+    "fn": "maximumWidthOfBinaryTree",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3]",
+    "firstOut": "[1,2,3]",
+    "category": "Trees"
+  },
+  {
+    "slug": "0-1-matrix",
+    "title": "0/1 Matrix",
+    "fn": "0-1Matrix",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[[0,0,0],[0,1,0],[0,0,0]]",
+    "firstOut": "[[0,0,0],[0,1,0],[0,0,0]]",
+    "category": "graphs"
+  },
+  {
+    "slug": "count-partitions-with-given-difference",
+    "title": "Count Partitions with Given Difference",
+    "fn": "countPartitionsWithGivenDifference",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "knapsack-problem",
+    "title": "Knapsack Problem",
+    "fn": "knapsackProblem",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "rod-cutting",
+    "title": "Rod Cutting",
+    "fn": "rodCutting",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "print-lcs",
+    "title": "Print LCS",
+    "fn": "printLcs",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "longest-palindromic-subsequence",
+    "title": "Longest Palindromic Subsequence",
+    "fn": "longestPalindromicSubsequence",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "min-insertions-to-make-string-palindrome",
+    "title": "Min Insertions to Make String Palindrome",
+    "fn": "minInsertionsToMakeStringPalindrome",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "min-operations-to-convert-string-a-to-b",
+    "title": "Min Operations to Convert String A to B",
+    "fn": "minOperationsToConvertStringAToB",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "wildcard-matching",
+    "title": "Wildcard Matching",
+    "fn": "wildcardMatching",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "best-time-to-buy-and-sell-stock-iii",
+    "title": "Best Time to Buy and Sell Stock III",
+    "fn": "bestTimeToBuyAndSellStockIii",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "buy-and-sell-stock-with-cooldown",
+    "title": "Buy and Sell Stock with Cooldown",
+    "fn": "buyAndSellStockWithCooldown",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "buy-and-sell-stock-with-transaction-fee",
+    "title": "Buy and Sell Stock with Transaction Fee",
+    "fn": "buyAndSellStockWithTransactionFee",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "dp"
+  },
+  {
+    "slug": "unique-email-addresses",
+    "title": "Unique Email Addresses",
+    "fn": "uniqueEmailAddresses",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "majority-element",
+    "title": "Majority Element",
+    "fn": "majorityElement",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "find-pivot-index",
+    "title": "Find Pivot Index",
+    "fn": "findPivotIndex",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "find-all-numbers-disappeared-in-an-array",
+    "title": "Find All Numbers Disappeared in An Array",
+    "fn": "findAllNumbersDisappearedInAnArray",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "maximum-number-of-balloons",
+    "title": "Maximum Number of Balloons",
+    "fn": "maximumNumberOfBalloons",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "brick-wall",
+    "title": "Brick Wall",
+    "fn": "brickWall",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "unique-length-3-palindromic-subsequences",
+    "title": "Unique Length 3 Palindromic Subsequences",
+    "fn": "uniqueLength-3PalindromicSubsequences",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "minimum-number-of-swaps-to-make-the-string-balanced",
+    "title": "Minimum Number of Swaps to Make The String Balanced",
+    "fn": "minimumNumberOfSwapsToMakeTheStringBalanced",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "number-of-pairs-of-interchangeable-rectangles",
+    "title": "Number of Pairs of Interchangeable Rectangles",
+    "fn": "numberOfPairsOfInterchangeableRectangles",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "maximum-product-of-the-length-of-two-palindromic-subsequences",
+    "title": "Maximum Product of The Length of Two Palindromic Subsequences",
+    "fn": "maximumProductOfTheLengthOfTwoPalindromicSubsequences",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "grid-game",
+    "title": "Grid Game",
+    "fn": "gridGame",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "wiggle-sort",
+    "title": "Wiggle Sort",
+    "fn": "wiggleSort",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "largest-number",
+    "title": "Largest Number",
+    "fn": "largestNumber",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "push-dominoes",
+    "title": "Push Dominoes",
+    "fn": "pushDominoes",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "repeated-dna-sequences",
+    "title": "Repeated DNA Sequences",
+    "fn": "repeatedDnaSequences",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "range-sum-query-2d-immutable",
+    "title": "Range Sum Query 2D Immutable",
+    "fn": "rangeSumQuery-2dImmutable",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "non-decreasing-array",
+    "title": "Non Decreasing Array",
+    "fn": "nonDecreasingArray",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "first-missing-positive",
+    "title": "First Missing Positive",
+    "fn": "firstMissingPositive",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "sign-of-the-product-of-an-array",
+    "title": "Sign of An Array",
+    "fn": "signOfTheProductOfAnArray",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "number-of-zero-filled-subarrays",
+    "title": "Number of Zero-Filled Subarrays",
+    "fn": "numberOfZeroFilledSubarrays",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "optimal-partition-of-string",
+    "title": "Optimal Partition of String",
+    "fn": "optimalPartitionOfString",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "minimum-penalty-for-a-shop",
+    "title": "Minimum Penalty for a Shop",
+    "fn": "minimumPenaltyForAShop",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "text-justification",
+    "title": "Text Justification",
+    "fn": "textJustification",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[\"abc\",\"def\"]",
+    "firstOut": "[\"abc\",\"def\"]",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "naming-a-company",
+    "title": "Naming a Company",
+    "fn": "namingACompany",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "Arrays & Hashing"
+  },
+  {
+    "slug": "copy-list-with-random-pointer",
+    "title": "Copy List With Random Pointer",
+    "fn": "copyRandomList",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
+    "firstOut": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
+    "category": "Linked List"
+  },
+  {
+    "slug": "minimum-time-to-collect-all-apples-in-a-tree",
+    "title": "Minimum Time to Collect All Apples in a Tree",
+    "fn": "minimumTimeToCollectAllApplesInATree",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[[1,2],[3,4]]",
+    "firstOut": "[[1,2],[3,4]]",
+    "category": "Trees"
+  },
+  {
+    "slug": "time-needed-to-inform-all-employees",
+    "title": "Time Needed to Inform All Employees ",
+    "fn": "timeNeededToInformAllEmployees",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Trees"
+  },
+  {
+    "slug": "unique-binary-search-trees",
+    "title": "Unique Binary Search Trees",
+    "fn": "uniqueBinarySearchTrees",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "Trees"
+  },
+  {
+    "slug": "operations-on-tree",
+    "title": "Operations On Tree",
+    "fn": "operationsOnTree",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "Trees"
+  },
+  {
+    "slug": "serialize-and-deserialize-binary-tree",
+    "title": "Serialize And Deserialize Binary Tree",
+    "fn": "serialize",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,null,null,4,5]",
+    "firstOut": "[1,2,3,null,null,4,5]",
+    "category": "Trees"
+  },
+  {
+    "slug": "verifying-an-alien-dictionary",
+    "title": "Verifying An Alien Dictionary",
+    "fn": "verifyingAnAlienDictionary",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[\"abc\",\"def\"]",
+    "firstOut": "[\"abc\",\"def\"]",
+    "category": "Graphs"
+  },
+  {
+    "slug": "clone-graph",
+    "title": "Clone Graph",
+    "fn": "cloneGraph",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[[2,4],[1,3],[2,4],[1,3]]",
+    "firstOut": "[[2,4],[1,3],[2,4],[1,3]]",
+    "category": "Graphs"
+  },
+  {
+    "slug": "detonate-the-maximum-bombs",
+    "title": "Detonate the Maximum Bombs",
+    "fn": "detonateTheMaximumBombs",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "Graphs"
+  },
+  {
+    "slug": "minimum-number-of-days-to-eat-n-oranges",
+    "title": "Minimum Number of Days to Eat N Oranges",
+    "fn": "minimumNumberOfDaysToEatNOranges",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "Graphs"
+  },
+  {
+    "slug": "check-if-there-is-a-valid-partition-for-the-array",
+    "title": "Check if There is a Valid Partition For The Array",
+    "fn": "checkIfThereIsAValidPartitionForTheArray",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "1-D Dynamic Programming"
+  },
+  {
+    "slug": "maximum-subarray-min-product",
+    "title": "Maximum Subarray Min Product",
+    "fn": "maximumSubarrayMinProduct",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "1-D Dynamic Programming"
+  },
+  {
+    "slug": "number-of-longest-increasing-subsequence",
+    "title": "Number of Longest Increasing Subsequence",
+    "fn": "numberOfLongestIncreasingSubsequence",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "1-D Dynamic Programming"
+  },
+  {
+    "slug": "stickers-to-spell-word",
+    "title": "Stickers to Spell Word",
+    "fn": "stickersToSpellWord",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[\"abc\",\"def\"]",
+    "firstOut": "[\"abc\",\"def\"]",
+    "category": "1-D Dynamic Programming"
+  },
+  {
+    "slug": "last-stone-weight-ii",
+    "title": "Last Stone Weight II",
+    "fn": "lastStoneWeightIi",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "maximum-alternating-subsequence-sum",
+    "title": "Maximum Alternating Subsequence Sum",
+    "fn": "maximumAlternatingSubsequenceSum",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[1,2,3,4,5]",
+    "firstOut": "[1,2,3,4,5]",
+    "category": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "count-vowels-permutation",
+    "title": "Count Vowels Permutation",
+    "fn": "countVowelsPermutation",
+    "reason": "GENERIC_PLACEHOLDER",
+    "firstIn": "5",
+    "firstOut": "5",
+    "category": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "flip-string-to-monotone-increasing",
+    "title": "Flip String to Monotone Increasing",
+    "fn": "flipStringToMonotoneIncreasing",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "\"hello\"",
+    "firstOut": "\"hello\"",
+    "category": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "maximum-value-of-k-coins-from-piles",
+    "title": "Maximum Value of K Coins from Piles",
+    "fn": "maximumValueOfKCoinsFromPiles",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[[1,2],[3,4]]",
+    "firstOut": "[[1,2],[3,4]]",
+    "category": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "number-of-ways-to-form-a-target-string-given-a-dictionary",
+    "title": "Number of Ways to Form a Target String Given a Dictionary",
+    "fn": "numberOfWaysToFormATargetStringGivenADictionary",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "[\"abc\",\"def\"]",
+    "firstOut": "[\"abc\",\"def\"]",
+    "category": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "sleep",
+    "title": "Sleep",
+    "fn": "sleep",
+    "reason": "INPUT_EQUALS_OUTPUT",
+    "firstIn": "100",
+    "firstOut": "100",
+    "category": "JavaScript"
+  }
+]
