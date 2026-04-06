@@ -21,7 +21,7 @@ const questionSchema = new mongoose.Schema({
     category: { type: String, required: true },
     difficulty: { type: String, enum: ['Easy', 'Medium', 'Hard'], default: 'Medium' },
     type: { type: String, default: 'Aptitude' },
-    company: { type: String }
+    companies: [{ type: String }]
 }, { timestamps: true });
 
 const Question = mongoose.models.Question || mongoose.model('Question', questionSchema);

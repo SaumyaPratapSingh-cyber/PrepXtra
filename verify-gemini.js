@@ -17,7 +17,7 @@ async function verify() {
 
     try {
         const genAI = new GoogleGenerativeAI(key);
-        // Try gemini-1.5-flash as it's often the new default/stable one
+        // Use gemini-2.0-flash (current stable model)
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
         console.log("Sending test prompt to Gemini...");

@@ -7,7 +7,7 @@ import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Added missing import
+import { usePathname, useRouter } from "next/navigation"; // Added missing import
 import { cn } from "@/lib/utils"; // Added missing import
 import {
   LayoutDashboard,
@@ -37,6 +37,7 @@ export default function DashboardLayout({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -45,6 +46,9 @@ export default function DashboardLayout({
         if (res.data.data) setUser(res.data.data);
       } catch (error) {
         console.error("Failed to fetch user", error);
+        if (axios.isAxiosError(error) && error.response?.status === 401) {
+          router.push("/login");
+        }
       }
     };
     fetchUser();
