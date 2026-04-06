@@ -6,7 +6,7 @@ import CodeEditor from "@/components/ui/CodeEditor";
 import { ArrowLeft, Sparkles, Building2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function ResumeTrackIDEPage() {
+function ResumeTrackIDEPageContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const title = searchParams.get("title") || "Untitled Problem";
@@ -85,5 +85,15 @@ export default function ResumeTrackIDEPage() {
                 </div>
             </div>
         </DashboardPage>
+    );
+}
+
+import { Suspense } from "react";
+
+export default function ResumeTrackIDEPage() {
+    return (
+        <Suspense fallback={<div className="p-8 text-white">Loading IDE environment...</div>}>
+            <ResumeTrackIDEPageContent />
+        </Suspense>
     );
 }
