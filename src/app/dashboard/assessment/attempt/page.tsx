@@ -393,4 +393,15 @@ const ShieldAlert = ({ className }: { className?: string }) => (
     </svg>
 );
 
-export default AssessmentAttemptPage;
+export default function AssessmentAttemptPageWrapper() {
+    return (
+        <React.Suspense fallback={
+            <div className="h-screen bg-[#02040a] flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full border-t-2 border-blue-500 animate-spin" />
+            </div>
+        }>
+            <AssessmentAttemptPage />
+        </React.Suspense>
+    );
+}
+
