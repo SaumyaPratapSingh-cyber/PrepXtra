@@ -68,19 +68,19 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
 
             // Set natural base pose (RPM uses A-pose by default. Let's rest arms further down)
             if (rightArm.current) {
-                rightArm.current.rotation.z = 1.3; // Swing down
+                rightArm.current.rotation.z = -1.2; // Negative Z swings right arm DOWN
                 rightArm.current.rotation.x = 0;
             }
             if (leftArm.current) {
-                leftArm.current.rotation.z = -1.3; // Swing down
+                leftArm.current.rotation.z = 1.2; // Positive Z swings left arm DOWN
                 leftArm.current.rotation.x = 0;
             }
             if (rightForeArm.current) rightForeArm.current.rotation.y = 0;
             if (leftForeArm.current) leftForeArm.current.rotation.y = 0;
 
-            // Center portrait framing - move back and down to prevent overlapping the text UI
-            scene.position.y = -2.2;
-            scene.position.z = -1.0; 
+            // Center portrait framing - move UP so head is in the top-half of screen, leaving bottom free for UI
+            scene.position.y = -0.6;
+            scene.position.z = 0; 
             scene.scale.set(1.0, 1.0, 1.0);
         } catch (e) {
             console.error("Error setting up avatar rig", e);
@@ -168,19 +168,19 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
             
             // Subtle, professional hand movements
             if (rightArm.current && rightForeArm.current) {
-                const targetZ = activeGesture === 1 ? 1.0 + Math.sin(t*3)*0.1 : 1.3;
-                const targetX = activeGesture === 1 ? -0.2 + Math.cos(t*2)*0.1 : 0;
+                const targetZ = activeGesture === 1 ? -0.8 + Math.sin(t*3)*0.1 : -1.2;
+                const targetX = activeGesture === 1 ? 0.2 + Math.cos(t*2)*0.1 : 0;
                 rightArm.current.rotation.z = THREE.MathUtils.lerp(rightArm.current.rotation.z, targetZ, 0.05);
                 rightArm.current.rotation.x = THREE.MathUtils.lerp(rightArm.current.rotation.x, targetX, 0.05);
-                rightForeArm.current.rotation.x = THREE.MathUtils.lerp(rightForeArm.current.rotation.x, activeGesture === 1 ? -0.5 : 0, 0.05);
+                rightForeArm.current.rotation.x = THREE.MathUtils.lerp(rightForeArm.current.rotation.x, activeGesture === 1 ? -0.8 : -0.2, 0.05);
             }
 
             if (leftArm.current && leftForeArm.current) {
-                const targetZ = activeGesture === 2 ? -1.0 + Math.sin(t*2.5)*0.1 : -1.3;
-                const targetX = activeGesture === 2 ? -0.2 + Math.cos(t*2)*0.1 : 0;
+                const targetZ = activeGesture === 2 ? 0.8 + Math.sin(t*2.5)*0.1 : 1.2;
+                const targetX = activeGesture === 2 ? 0.2 + Math.cos(t*2)*0.1 : 0;
                 leftArm.current.rotation.z = THREE.MathUtils.lerp(leftArm.current.rotation.z, targetZ, 0.05);
                 leftArm.current.rotation.x = THREE.MathUtils.lerp(leftArm.current.rotation.x, targetX, 0.05);
-                leftForeArm.current.rotation.x = THREE.MathUtils.lerp(leftForeArm.current.rotation.x, activeGesture === 2 ? -0.5 : 0, 0.05);
+                leftForeArm.current.rotation.x = THREE.MathUtils.lerp(leftForeArm.current.rotation.x, activeGesture === 2 ? -0.8 : -0.2, 0.05);
             }
 
             // Occasional head emphasis
@@ -190,8 +190,8 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
 
         } else if (isListening) {
             // While listening, rest hands, nod occasionally
-            if (rightArm.current) rightArm.current.rotation.z = THREE.MathUtils.lerp(rightArm.current.rotation.z, 1.3, 0.05);
-            if (leftArm.current) leftArm.current.rotation.z = THREE.MathUtils.lerp(leftArm.current.rotation.z, -1.3, 0.05);
+            if (rightArm.current) rightArm.current.rotation.z = THREE.MathUtils.lerp(rightArm.current.rotation.z, -1.2, 0.05);
+            if (leftArm.current) leftArm.current.rotation.z = THREE.MathUtils.lerp(leftArm.current.rotation.z, 1.2, 0.05);
             if (rightForeArm.current) rightForeArm.current.rotation.x = THREE.MathUtils.lerp(rightForeArm.current.rotation.x, 0, 0.05);
             if (leftForeArm.current) leftForeArm.current.rotation.x = THREE.MathUtils.lerp(leftForeArm.current.rotation.x, 0, 0.05);
 
@@ -202,8 +202,8 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
             }
         } else {
             // Idle state - completely relaxed
-            if (rightArm.current) rightArm.current.rotation.z = THREE.MathUtils.lerp(rightArm.current.rotation.z, 1.3, 0.05);
-            if (leftArm.current) leftArm.current.rotation.z = THREE.MathUtils.lerp(leftArm.current.rotation.z, -1.3, 0.05);
+            if (rightArm.current) rightArm.current.rotation.z = THREE.MathUtils.lerp(rightArm.current.rotation.z, -1.2, 0.05);
+            if (leftArm.current) leftArm.current.rotation.z = THREE.MathUtils.lerp(leftArm.current.rotation.z, 1.2, 0.05);
             if (rightForeArm.current) rightForeArm.current.rotation.x = THREE.MathUtils.lerp(rightForeArm.current.rotation.x, 0, 0.05);
             if (leftForeArm.current) leftForeArm.current.rotation.x = THREE.MathUtils.lerp(leftForeArm.current.rotation.x, 0, 0.05);
             if (headBone.current) headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0, 0.1);
