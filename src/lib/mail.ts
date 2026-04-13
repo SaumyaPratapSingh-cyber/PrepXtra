@@ -120,3 +120,31 @@ export const sendJobAlert = async (email: string, jobs: any[]) => {
     return false;
   }
 };
+
+export const sendPasswordResetEmail = async (email: string, otp: string) => {
+  try {
+    const mailOptions = {
+      from: `"PrepXtra Security" <${emailUser}>`,
+      to: email,
+      subject: "Password Reset Request",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+          <h2 style="color: #ea580c; text-align: center;">Reset Your Password</h2>
+          <p>You requested a password reset. Please use the following One-Time Password (OTP) to proceed:</p>
+          <div style="background-color: #f3f4f6; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; letter-spacing: 5px; border-radius: 5px; margin: 20px 0; color: #1f2937;">
+            ${otp}
+          </div>
+          <p>This code will expire in 10 minutes.</p>
+          <p style="color: #666; font-size: 12px; margin-top: 20px;">If you didn't request a password reset, please ignore this email or contact support if you have concerns.</p>
+        </div>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log(`Password reset email sent to ${email}`);
+    return true;
+  } catch (error) {
+    console.error("Error sending password reset email:", error);
+    return false;
+  }
+};

@@ -30,6 +30,8 @@ const UserSchema = new Schema(
         },
         verificationToken: { type: String, select: true },
         verificationTokenExpiry: { type: Date, select: true },
+        resetPasswordOTP: { type: String, select: true },
+        resetPasswordOTPExpiry: { type: Date, select: true },
         // Expanded Profile Fields
         headline: { type: String, default: "" },
         bio: { type: String, default: "" },
