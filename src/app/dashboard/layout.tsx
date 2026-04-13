@@ -47,7 +47,7 @@ export default function DashboardLayout({
       } catch (error) {
         console.error("Failed to fetch user", error);
         if (axios.isAxiosError(error) && error.response?.status === 401) {
-          router.push("/login");
+          router.push("/auth/login");
         }
       }
     };

@@ -77,7 +77,7 @@ export function Topbar({ user, onMobileMenuOpen, isCollapsed }: TopbarProps) {
                                 {user?.fullName ? user.fullName[0].toUpperCase() : <User className="h-4 w-4" />}
                             </div>
                             <span className="hidden md:block text-sm font-medium text-slate-300 pr-2">
-                                {user?.fullName || "Student"}
+                                {user?.fullName || "..."}
                             </span>
                         </button>
 
@@ -98,8 +98,8 @@ export function Topbar({ user, onMobileMenuOpen, isCollapsed }: TopbarProps) {
                                         className="absolute right-0 top-full mt-2 w-56 bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden"
                                     >
                                         <div className="p-4 border-b border-white/5">
-                                            <p className="text-sm font-medium text-white">{user?.fullName || "Student"}</p>
-                                            <p className="text-xs text-slate-500 mt-0.5">{user?.email || "student@example.com"}</p>
+                                            <p className="text-sm font-medium text-white">{user?.fullName || "..."}</p>
+                                            <p className="text-xs text-slate-500 mt-0.5">{user?.email || "..."}</p>
                                         </div>
                                         <div className="p-1">
                                             <Link
