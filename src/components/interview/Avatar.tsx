@@ -67,19 +67,26 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
                 if (obj.name === 'RightShoulder') rightShoulder.current = obj;
             });
 
-            // Log what we found for debugging
-            console.log('[Avatar] Head mesh:', !!headMesh.current, '| Teeth mesh:', !!teethMesh.current);
-            console.log('[Avatar] Bones found — Head:', !!headBone.current, '| Neck:', !!neckBone.current, 
-                '| RightArm:', !!rightArm.current, '| LeftArm:', !!leftArm.current);
-            
-            if (headMesh.current?.morphTargetDictionary) {
-                console.log('[Avatar] Morph targets:', Object.keys(headMesh.current.morphTargetDictionary));
+            // ─── IMMEDIATELY SET POSE ───
+            // Arms straight down at sides (not lerped — instant)
+            if (rightArm.current) {
+                rightArm.current.rotation.set(0, 0, -Math.PI * 0.42); // ~75° down
+            }
+            if (leftArm.current) {
+                leftArm.current.rotation.set(0, 0, Math.PI * 0.42);
+            }
+            if (rightForeArm.current) {
+                rightForeArm.current.rotation.set(0, 0, 0);
+            }
+            if (leftForeArm.current) {
+                leftForeArm.current.rotation.set(0, 0, 0);
             }
 
-            // ─── FRAMING ───
-            // RPM model is ~1.75 units tall, head at ~1.6.
-            // Camera is at y=1.35 looking at y=1.35 (set in page.tsx).
-            // We keep the model at origin so the bones work correctly.
+            // Head and neck looking STRAIGHT FORWARD (not up)
+            if (headBone.current) headBone.current.rotation.set(0, 0, 0);
+            if (neckBone.current) neckBone.current.rotation.set(0, 0, 0);
+
+            // Keep model at origin — camera is positioned at chest height in page.tsx
             scene.position.set(0, 0, 0);
             scene.scale.set(1, 1, 1);
 
@@ -131,90 +138,37 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
         });
 
         // ═══════════════════════════════════════
-        // 2. EYE BLINK — this model doesn't have eyeBlink morphs,
-        //    but we can simulate with viseme_sil squint
+        // 2. HEAD & NECK — subtle tracking + breathing
+        //    Camera is a tight headshot so only head/neck/shoulders visible
         // ═══════════════════════════════════════
-        // (No-op since model lacks eyeBlink targets)
+        const mouseX = state.pointer.x * 0.08;
+        const mouseY = state.pointer.y * 0.05;
 
-        // ═══════════════════════════════════════
-        // 3. HEAD & NECK — look towards camera/mouse, breathing
-        // ═══════════════════════════════════════
-        const mouseX = state.pointer.x * 0.12;
-        const mouseY = state.pointer.y * 0.08;
-
-        // Breathing on spine
+        // Subtle breathing on upper spine
         if (spine2Bone.current) {
-            const breath = Math.sin(t * 1.8) * 0.008;
-            spine2Bone.current.rotation.x = THREE.MathUtils.lerp(spine2Bone.current.rotation.x, breath, 0.08);
+            const breath = Math.sin(t * 1.8) * 0.005;
+            spine2Bone.current.rotation.x = THREE.MathUtils.lerp(spine2Bone.current.rotation.x, breath, 0.06);
         }
 
-        // Head tracks mouse gently
+        // Neck: very gentle mouse tracking, head looks FORWARD by default
         if (neckBone.current) {
-            neckBone.current.rotation.y = THREE.MathUtils.lerp(neckBone.current.rotation.y, mouseX, 0.06);
-            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, -mouseY * 0.5, 0.06);
+            neckBone.current.rotation.y = THREE.MathUtils.lerp(neckBone.current.rotation.y, mouseX, 0.04);
+            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, mouseY * 0.3, 0.04);
         }
 
-        // ═══════════════════════════════════════
-        // 4. HAND GESTURES — subtle professional movements
-        // ═══════════════════════════════════════
-        if (isSpeaking) {
-            // Change gesture every 2-4 seconds
-            if (t - lastGestureChange.current > 2.5 + Math.random() * 2) {
-                gesturePhase.current = Math.floor(Math.random() * 4);
-                lastGestureChange.current = t;
-            }
-
-            const g = gesturePhase.current;
-            const wave = Math.sin(t * 2.5) * 0.06;
-
-            // Right arm — subtle raise during some gestures
-            if (rightArm.current) {
-                const rz = g === 1 ? -0.9 + wave : -1.1;
-                rightArm.current.rotation.z = THREE.MathUtils.lerp(rightArm.current.rotation.z, rz, 0.04);
-                rightArm.current.rotation.x = THREE.MathUtils.lerp(rightArm.current.rotation.x, g === 1 ? 0.15 : 0, 0.04);
-            }
-            if (rightForeArm.current) {
-                rightForeArm.current.rotation.z = THREE.MathUtils.lerp(rightForeArm.current.rotation.z, g === 1 ? -0.4 : 0, 0.04);
-            }
-
-            // Left arm
-            if (leftArm.current) {
-                const lz = g === 2 ? 0.9 + wave : 1.1;
-                leftArm.current.rotation.z = THREE.MathUtils.lerp(leftArm.current.rotation.z, lz, 0.04);
-                leftArm.current.rotation.x = THREE.MathUtils.lerp(leftArm.current.rotation.x, g === 2 ? 0.15 : 0, 0.04);
-            }
-            if (leftForeArm.current) {
-                leftForeArm.current.rotation.z = THREE.MathUtils.lerp(leftForeArm.current.rotation.z, g === 2 ? 0.4 : 0, 0.04);
-            }
-
-            // Head emphasis nods while speaking
-            if (headBone.current) {
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, Math.sin(t * 4) * 0.015, 0.08);
-            }
-
-        } else {
-            // Relaxed idle / listening pose — arms down at sides
-            if (rightArm.current) {
-                rightArm.current.rotation.z = THREE.MathUtils.lerp(rightArm.current.rotation.z, -1.15, 0.04);
-                rightArm.current.rotation.x = THREE.MathUtils.lerp(rightArm.current.rotation.x, 0, 0.04);
-            }
-            if (leftArm.current) {
-                leftArm.current.rotation.z = THREE.MathUtils.lerp(leftArm.current.rotation.z, 1.15, 0.04);
-                leftArm.current.rotation.x = THREE.MathUtils.lerp(leftArm.current.rotation.x, 0, 0.04);
-            }
-            if (rightForeArm.current) {
-                rightForeArm.current.rotation.z = THREE.MathUtils.lerp(rightForeArm.current.rotation.z, 0, 0.04);
-            }
-            if (leftForeArm.current) {
-                leftForeArm.current.rotation.z = THREE.MathUtils.lerp(leftForeArm.current.rotation.z, 0, 0.04);
-            }
-
-            // Listening nods
-            if (isListening && headBone.current) {
-                const nod = Math.sin(t * 1.5) > 0.92 ? 0.05 : 0;
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, nod, 0.08);
-            } else if (headBone.current) {
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0, 0.06);
+        // Head: small emphasis nods when speaking, gentle nod when listening
+        if (headBone.current) {
+            if (isSpeaking) {
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, Math.sin(t * 3.5) * 0.012, 0.06);
+                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, Math.sin(t * 2) * 0.01, 0.04);
+            } else if (isListening) {
+                // Occasional acknowledging nod
+                const nod = Math.sin(t * 1.5) > 0.92 ? 0.04 : 0;
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, nod, 0.06);
+                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
+            } else {
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0, 0.04);
+                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
             }
         }
     });
