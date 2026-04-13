@@ -372,14 +372,14 @@ export default function ThreeDInterviewPage() {
         <div className="fixed inset-0 bg-[#050505] text-white flex overflow-hidden z-[100] font-sans selection:bg-indigo-500/30">
             {/* LEFT SIDE: AVATAR / BACKGROUND */}
             <div className="hidden md:block md:w-[50%] lg:w-[55%] relative border-r border-white/10 bg-gradient-to-b from-[#1a1a1a] to-[#050505]">
-                <Canvas camera={{ position: [0, 0, 1.8], fov: 30 }} shadows>
+                <Canvas camera={{ position: [0, 1.35, 1.8], fov: 35 }} shadows>
                     <ambientLight intensity={2.5} />
                     <spotLight position={[5, 5, 5]} intensity={3.0} />
                     <pointLight position={[-3, 2, 3]} intensity={2.0} color="#818cf8" />
                     <Suspense fallback={null}>
                         <Avatar isSpeaking={status === 'speaking'} isListening={status === 'listening'} volume={volume} />
                     </Suspense>
-                    <OrbitControls target={[0, 0, 0]} enableZoom={false} enablePan={false} maxPolarAngle={Math.PI / 1.8} minPolarAngle={Math.PI / 2.5} />
+                    <OrbitControls target={[0, 1.35, 0]} enableZoom={false} enablePan={false} enableRotate={false} />
                 </Canvas>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none" />
 
