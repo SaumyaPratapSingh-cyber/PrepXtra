@@ -369,9 +369,9 @@ export default function ThreeDInterviewPage() {
     };
 
     return (
-        <div className="fixed inset-0 bg-[#050505] text-white overflow-hidden z-[100] font-sans selection:bg-indigo-500/30">
-            {/* BACKGROUND */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#1a1a1a] to-[#050505]">
+        <div className="fixed inset-0 bg-[#050505] text-white flex overflow-hidden z-[100] font-sans selection:bg-indigo-500/30">
+            {/* LEFT SIDE: AVATAR / BACKGROUND */}
+            <div className="hidden md:block md:w-[50%] lg:w-[55%] relative border-r border-white/10 bg-gradient-to-b from-[#1a1a1a] to-[#050505]">
                 <Canvas camera={{ position: [0, 0, 1.8], fov: 30 }} shadows>
                     <ambientLight intensity={2.5} />
                     <spotLight position={[5, 5, 5]} intensity={3.0} />
@@ -382,274 +382,284 @@ export default function ThreeDInterviewPage() {
                     <OrbitControls target={[0, 0, 0]} enableZoom={false} enablePan={false} maxPolarAngle={Math.PI / 1.8} minPolarAngle={Math.PI / 2.5} />
                 </Canvas>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none" />
+
+                {/* Live Badge */}
+                {(status !== 'setup' && status !== 'finished') && (
+                    <div className="absolute top-6 left-6 flex items-center gap-2 z-10 pointer-events-none">
+                        <span className="px-3 py-1 bg-black/50 backdrop-blur border border-red-500/30 text-red-400 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> LIVE
+                        </span>
+                    </div>
+                )}
             </div>
 
-            {/* ERROR TOAST */}
-            <AnimatePresence>
-                {errorMsg && (
-                    <motion.div initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -50, opacity: 0 }} className="absolute top-4 left-1/2 -translate-x-1/2 z-[200] bg-red-500/90 text-white px-6 py-3 rounded-full shadow-lg border border-red-400 backdrop-blur-md flex items-center gap-3">
-                        <AlertTriangle size={18} />
-                        <span className="text-sm font-bold">{errorMsg}</span>
-                        <button onClick={() => { setErrorMsg(null); startWebcam(); }} className="ml-2 bg-white/20 p-1 rounded-full hover:bg-white/30"><RefreshCcw size={14} /></button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            {/* RIGHT SIDE: UI PANELS */}
+            <div className="w-full md:w-[50%] lg:w-[45%] flex flex-col relative z-20 bg-[#0a0a0a]">
+                
+                 {/* ERROR TOAST */}
+                <AnimatePresence>
+                    {errorMsg && (
+                        <motion.div initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -50, opacity: 0 }} className="absolute top-4 left-1/2 -translate-x-1/2 z-[200] bg-red-500/90 text-white px-6 py-3 rounded-full shadow-lg border border-red-400 backdrop-blur-md flex items-center gap-3">
+                            <AlertTriangle size={18} />
+                            <span className="text-sm font-bold">{errorMsg}</span>
+                            <button onClick={() => { setErrorMsg(null); startWebcam(); }} className="ml-2 bg-white/20 p-1 rounded-full hover:bg-white/30"><RefreshCcw size={14} /></button>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
-            {/* SETUP SCREEN */}
-            <AnimatePresence>
-                {status === 'setup' && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-8">
-                        <div className="max-w-md w-full space-y-8 bg-neutral-900/50 p-8 rounded-3xl border border-white/10 shadow-2xl">
-                            <div className="space-y-2 text-center">
-                                <h1 className="text-3xl font-black tracking-tight text-white">Interview Setup</h1>
-                                <p className="text-slate-400">Configure your session parameters.</p>
+                {/* HEADER */}
+                {(status !== 'setup' && status !== 'finished') && (
+                    <div className="p-6 md:p-8 border-b border-white/5 flex justify-between items-center bg-black/40">
+                        <div className="flex flex-col gap-1">
+                            <h1 className="text-xl md:text-2xl font-black tracking-tight flex items-center gap-2">
+                                <span className="text-indigo-500">AI</span> INTERVIEW
+                            </h1>
+                            <div className="text-xs font-medium text-slate-400">
+                                Question {questionCount} of {MAX_QUESTIONS}
                             </div>
-                            <div className="space-y-4">
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500">Target Role</label>
-                                    <input value={role} onChange={(e) => setRole(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <div className="hidden lg:flex flex-col items-end gap-1 bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <div className="flex items-center gap-2 mb-1">
+                                    <Gauge size={14} className="text-indigo-400" />
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Confidence</span>
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500">Domain / Focus</label>
-                                    <input value={domain} onChange={(e) => setDomain(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                                <div className="flex items-center gap-2">
+                                    <Activity size={12} className={confidence > 80 ? 'text-emerald-500' : 'text-amber-500'} />
+                                    <span className={`text-xl font-black ${confidence > 80 ? 'text-emerald-400' : 'text-amber-400'}`}>{Math.round(confidence)}%</span>
+                                </div>
+                                <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden mt-1">
+                                    <div className={`h-full transition-all duration-500 ${confidence > 80 ? 'bg-emerald-500' : 'bg-amber-500'}`} style={{ width: `${confidence}%` }} />
                                 </div>
                             </div>
-                            <button onClick={() => setStatus("start")} className="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-indigo-500/25">
-                                Continue to Audio Check
+
+                            <button onClick={() => router.push('/dashboard')} className="p-3 bg-white/5 hover:bg-red-500/20 text-slate-400 hover:text-red-400 rounded-full transition-all border border-white/5">
+                                <Power size={18} />
                             </button>
                         </div>
-                    </motion.div>
+                    </div>
                 )}
-            </AnimatePresence>
 
-            {/* START SCREEN */}
-            <AnimatePresence>
-                {status === 'start' && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-8 text-center">
-                        <div className="max-w-md space-y-8">
-                            <h1 className="text-4xl font-black tracking-tight text-white">Ready?</h1>
-                            <div className="flex flex-col gap-4">
-                                <p className="text-slate-400 text-sm">Please ensure your camera and microphone are allowed.</p>
-                                <button onClick={handleStartSession} className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-all flex items-center justify-center gap-2 mx-auto shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-                                    <Play size={20} /> START INTERVIEW
+                {/* SETUP SCREEN */}
+                <AnimatePresence>
+                    {status === 'setup' && (
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-8">
+                            <div className="max-w-md w-full space-y-8 bg-[#111] p-8 rounded-3xl border border-white/10 shadow-2xl">
+                                <div className="space-y-2 text-center">
+                                    <h1 className="text-3xl font-black tracking-tight text-white">Interview Setup</h1>
+                                    <p className="text-slate-400">Configure your session parameters.</p>
+                                </div>
+                                <div className="space-y-4">
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-bold uppercase tracking-widest text-slate-500">Target Role</label>
+                                        <input value={role} onChange={(e) => setRole(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-bold uppercase tracking-widest text-slate-500">Domain / Focus</label>
+                                        <input value={domain} onChange={(e) => setDomain(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all" />
+                                    </div>
+                                </div>
+                                <button onClick={() => setStatus("start")} className="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-indigo-500/25">
+                                    Continue to Audio Check
                                 </button>
                             </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
-            {/* REPORT SCREEN - Unchanged from previous mostly */}
-            <AnimatePresence>
-                {status === 'finished' && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-[60] bg-[#050505] overflow-y-auto p-4 md:p-8">
-                        <div className="max-w-4xl mx-auto space-y-8">
-                            <div className="flex justify-between items-center">
-                                <h1 className="text-3xl font-black text-white">Interview Analysis</h1>
-                                <button onClick={() => router.push('/dashboard')} className="p-2 hover:bg-white/10 rounded-full"><X /></button>
-                            </div>
-
-                            {isGeneratingReport ? (
-                                <div className="h-64 flex flex-col items-center justify-center gap-4 text-slate-400">
-                                    <Loader2 className="animate-spin text-indigo-500" size={48} />
-                                    <p>Compiling comprehensive report...</p>
-                                </div>
-                            ) : reportData ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    {/* SCORE CARD */}
-                                    <div className="col-span-1 md:col-span-2 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-white/10 p-8 rounded-3xl flex flex-col md:flex-row items-center gap-8 shadow-2xl overflow-hidden relative group">
-                                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <div className="relative w-32 h-32 flex items-center justify-center bg-black/40 rounded-full border-4 border-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.3)]">
-                                            <span className="text-4xl font-black text-white">{reportData.score || 0}%</span>
-                                        </div>
-                                        <div className="flex-1 space-y-2 text-center md:text-left relative z-10">
-                                            <h2 className="text-2xl font-bold text-white">Overall Performance</h2>
-                                            <p className="text-slate-300 text-lg leading-relaxed">{reportData.feedback}</p>
-                                        </div>
-                                    </div>
-
-                                    {/* METRICS GRID */}
-                                    <div className="bg-white/5 border border-white/10 p-6 rounded-3xl space-y-4">
-                                        <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 flex items-center gap-2"><Activity size={16} /> Communication Metrics</h3>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="p-4 bg-black/40 rounded-2xl border border-white/5">
-                                                <p className="text-xs text-slate-400 mb-1">Filler Words</p>
-                                                <p className="text-2xl font-black text-amber-400">{fillerWordCount}</p>
-                                            </div>
-                                            <div className="p-4 bg-black/40 rounded-2xl border border-white/5">
-                                                <p className="text-xs text-slate-400 mb-1">Final Confidence</p>
-                                                <p className="text-2xl font-black text-emerald-400">{Math.round(confidence)}%</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="bg-white/5 border border-white/10 p-6 rounded-3xl space-y-4">
-                                        <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 flex items-center gap-2"><BarChart size={16} /> Key Strengths</h3>
-                                        <div className="flex flex-wrap gap-2">
-                                            {(reportData.strengths || ["Technical Depth", "Clarity", "Confidence"]).map((s: string) => (
-                                                <span key={s} className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-bold border border-indigo-500/20">{s}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Q&A HISTORY */}
-                                    <div className="col-span-1 md:col-span-2 space-y-4">
-                                        <h3 className="text-xl font-bold text-white flex items-center gap-2"><History size={20} className="text-indigo-400" /> Interview Transcript</h3>
-                                        <div className="space-y-4">
-                                            {history.map((item, idx) => (
-                                                <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-6 space-y-3">
-                                                    <div className="flex items-start gap-4">
-                                                        <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">Q{idx + 1}</div>
-                                                        <p className="text-slate-200 font-medium italic">"{item.question}"</p>
-                                                    </div>
-                                                    <div className="pl-12 flex items-start gap-4">
-                                                        <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold shrink-0">A</div>
-                                                        <p className="text-slate-400 leading-relaxed text-sm">{item.answer}</p>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <button onClick={() => router.push('/dashboard')} className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold mt-4 md:col-span-2 transition-all shadow-xl shadow-indigo-600/20 flex items-center justify-center gap-2 text-lg">
-                                        Return to Dashboard <ChevronRight size={20} />
+                {/* START SCREEN */}
+                <AnimatePresence>
+                    {status === 'start' && (
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 z-50 bg-[#0a0a0a] flex items-center justify-center p-8 text-center">
+                            <div className="max-w-md space-y-8">
+                                <h1 className="text-4xl font-black tracking-tight text-white">Ready?</h1>
+                                <div className="flex flex-col gap-4">
+                                    <p className="text-slate-400 text-sm">Please ensure your camera and microphone are allowed.</p>
+                                    <button onClick={handleStartSession} className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-all flex items-center justify-center gap-2 mx-auto shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                                        <Play size={20} /> START INTERVIEW
                                     </button>
                                 </div>
-                            ) : (
-                                <div className="text-center text-red-400">Failed to load report.</div>
-                            )}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            {/* TOP BAR & GAUGE */}
-            {(status !== 'setup' && status !== 'finished') && (
-                <div className="absolute top-0 inset-x-0 p-6 flex justify-between items-start z-10 pointer-events-none">
-                    <div className="flex flex-col gap-1 pointer-events-auto">
-                        <h1 className="text-xl font-black tracking-tight flex items-center gap-2">
-                            <span className="text-indigo-500">AI</span> INTERVIEW
-                        </h1>
-                        <div className="flex items-center gap-2 text-xs font-medium text-slate-400">
-                            Question {questionCount} of {MAX_QUESTIONS}
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 pointer-events-auto">
-                        <div className="hidden md:flex flex-col items-end gap-1 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-2xl">
-                            <div className="flex items-center gap-2 mb-1">
-                                <Gauge size={14} className="text-indigo-400" />
-                                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Confidence</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <Activity size={12} className={confidence > 80 ? 'text-emerald-500' : 'text-amber-500'} />
-                                <span className={`text-xl font-black ${confidence > 80 ? 'text-emerald-400' : 'text-amber-400'}`}>{Math.round(confidence)}%</span>
-                            </div>
-                            <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden mt-1">
-                                <div className={`h-full transition-all duration-500 ${confidence > 80 ? 'bg-emerald-500' : 'bg-amber-500'}`} style={{ width: `${confidence}%` }} />
-                            </div>
-                        </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
-                        <button onClick={() => router.push('/dashboard')} className="p-3 bg-white/5 hover:bg-red-500/20 text-slate-400 hover:text-red-400 rounded-full transition-all border border-white/5 backdrop-blur-md">
-                            <Power size={18} />
-                        </button>
-                    </div>
-                </div>
-            )}
+                {/* REPORT SCREEN */}
+                <AnimatePresence>
+                    {status === 'finished' && (
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-[60] bg-[#050505] overflow-y-auto p-4 md:p-8">
+                            <div className="max-w-4xl mx-auto space-y-8">
+                                <div className="flex justify-between items-center bg-[#111] border border-white/10 p-6 rounded-3xl">
+                                    <h1 className="text-3xl font-black text-white">Interview Analysis</h1>
+                                    <button onClick={() => router.push('/dashboard')} className="p-3 bg-white/5 hover:bg-white/10 rounded-full"><X size={24} /></button>
+                                </div>
 
-            {/* MAIN INTERFACE */}
-            {(status === 'listening' || status === 'speaking' || status === 'processing' || status === 'idle') && (
-                <div className="absolute inset-0 z-10 flex flex-col justify-end pb-8 px-8 md:px-16 pointer-events-none">
-                    <div className="w-full max-w-4xl mx-auto mb-8 pointer-events-auto">
+                                {isGeneratingReport ? (
+                                    <div className="h-64 flex flex-col items-center justify-center gap-4 text-slate-400 mt-20">
+                                        <Loader2 className="animate-spin text-indigo-500" size={48} />
+                                        <p className="text-lg">Compiling comprehensive technical report...</p>
+                                    </div>
+                                ) : reportData ? (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* SCORE CARD */}
+                                        <div className="col-span-1 md:col-span-2 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-white/10 p-8 rounded-3xl flex flex-col md:flex-row items-center gap-8 shadow-2xl relative overflow-hidden">
+                                            <div className="relative w-32 h-32 shrink-0 flex items-center justify-center bg-black/40 rounded-full border-4 border-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.3)]">
+                                                <span className="text-4xl font-black text-white">{reportData.score || 0}%</span>
+                                            </div>
+                                            <div className="flex-1 space-y-3 text-center md:text-left z-10">
+                                                <h2 className="text-2xl font-bold text-white">Overall Performance</h2>
+                                                <p className="text-slate-300 text-lg leading-relaxed">{reportData.feedback}</p>
+                                            </div>
+                                        </div>
+
+                                        {/* METRICS GRID */}
+                                        <div className="bg-white/5 border border-white/10 p-6 rounded-3xl space-y-4">
+                                            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 flex items-center gap-2"><Activity size={16} /> Metrics</h3>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="p-4 bg-black/40 rounded-2xl border border-white/5 flex flex-col justify-center">
+                                                    <p className="text-xs text-slate-400 mb-1">Filler Words</p>
+                                                    <p className="text-2xl font-black text-amber-400">{fillerWordCount}</p>
+                                                </div>
+                                                <div className="p-4 bg-black/40 rounded-2xl border border-white/5 flex flex-col justify-center">
+                                                    <p className="text-xs text-slate-400 mb-1">Final Confidence</p>
+                                                    <p className="text-2xl font-black text-emerald-400">{Math.round(confidence)}%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-white/5 border border-white/10 p-6 rounded-3xl space-y-4">
+                                            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 flex items-center gap-2"><BarChart size={16} /> Key Strengths</h3>
+                                            <div className="flex flex-wrap gap-2">
+                                                {(reportData.strengths || ["Technical Depth", "Clarity", "Confidence"]).map((s: string) => (
+                                                    <span key={s} className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-bold border border-indigo-500/20">{s}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Q&A HISTORY */}
+                                        <div className="col-span-1 md:col-span-2 space-y-4 mt-4">
+                                            <h3 className="text-xl font-bold text-white flex items-center gap-2"><History size={20} className="text-indigo-400" /> Interview Transcript</h3>
+                                            <div className="space-y-4 text-justify">
+                                                {history.map((item, idx) => (
+                                                    <div key={idx} className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 space-y-4">
+                                                        <div className="flex items-start gap-4">
+                                                            <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-bold shrink-0 mt-1">Q{idx + 1}</div>
+                                                            <p className="text-slate-200 font-medium text-lg italic">"{item.question}"</p>
+                                                        </div>
+                                                        <div className="pl-[3.25rem] flex items-start gap-4">
+                                                            <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold shrink-0 mt-1">A</div>
+                                                            <p className="text-slate-400 leading-relaxed text-[15px]">{item.answer}</p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <button onClick={() => router.push('/dashboard')} className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold md:col-span-2 transition-all shadow-xl shadow-indigo-600/20 flex items-center justify-center gap-2 text-lg">
+                                            Return to Dashboard <ChevronRight size={20} />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="text-center text-red-400 mt-20">Failed to load report.</div>
+                                )}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                {/* MIDDLE: CONVERSATION BOX */}
+                {(status === 'listening' || status === 'speaking' || status === 'processing' || status === 'idle') && (
+                    <div className="flex-1 flex flex-col justify-center p-8 overflow-y-auto">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentQuestion}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                className="bg-black/40 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -20 }}
+                                className="bg-[#141414] border border-white/5 p-8 rounded-[2rem] shadow-xl relative"
                             >
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-indigo-500/10 rounded-2xl shrink-0">
-                                        <Sparkles size={20} className="text-indigo-400" />
+                                <div className="flex items-start gap-5">
+                                    <div className="p-3 bg-indigo-500/10 rounded-2xl shrink-0 mt-1">
+                                        <Sparkles size={24} className="text-indigo-400" />
                                     </div>
-                                    <div className="space-y-2">
-                                        <h2 className="text-lg md:text-2xl font-medium leading-relaxed text-slate-100">"{currentQuestion}"</h2>
-                                        <div className="flex items-center gap-3">
-                                            <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest">{status === 'speaking' ? 'Interviewer Speaking...' : 'Awaiting Response'}</p>
-                                        </div>
+                                    <div className="space-y-4">
+                                        <h2 className="text-xl md:text-[22px] font-medium leading-[1.6] text-slate-100">"{currentQuestion}"</h2>
+                                        <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest inline-block px-3 py-1 bg-indigo-500/10 rounded-md">
+                                            {status === 'speaking' ? 'Interviewer Speaking...' : 'Awaiting Response'}
+                                        </p>
                                     </div>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
+                )}
 
-                    <div className="w-full max-w-4xl mx-auto flex items-end gap-6 pointer-events-auto">
-                        <div className="flex-1 bg-black/60 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-4 flex gap-4 items-center shadow-lg relative group transition-colors hover:border-white/20">
+                {/* BOTTOM: INPUT & WEBCAM */}
+                {(status === 'listening' || status === 'speaking' || status === 'processing' || status === 'idle') && (
+                    <div className="p-6 md:p-8 border-t border-white/5 bg-[#0e0e0e] flex flex-col gap-6 shrink-0 z-30 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+                        
+                        {/* Status Area */}
+                        <div className="flex items-center gap-4 px-2">
+                            <div className="relative w-28 md:w-36 aspect-video bg-black rounded-lg overflow-hidden border border-white/10 shrink-0">
+                                <video ref={videoRef} autoPlay muted playsInline className="w-full h-full object-cover transform scale-x-[-1]" />
+                                {errorMsg && <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-[10px] text-red-500 text-center p-1 font-bold">{errorMsg}</div>}
+                                {!isCamOpen && !errorMsg && <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-[10px] text-slate-500 font-bold uppercase tracking-widest text-center">Cam Off</div>}
+                            </div>
+                            <div className="flex-1">
+                                <p className="text-sm font-medium text-slate-400 flex items-center gap-2">
+                                    {status === 'listening' && <><span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> Listening to your mic...</>}
+                                    {status === 'processing' && <><Loader2 className="animate-spin text-indigo-400" size={14} /> Processing answer...</>}
+                                    {status === 'speaking' && <span className="text-indigo-400 font-bold">Interviewer is talking...</span>}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Input Control Bar */}
+                        <div className="bg-[#1a1a1a] border border-white/10 rounded-2xl p-2 flex gap-3 items-center">
                             {showTextFallback ? (
                                 <input
                                     autoFocus
                                     value={interimTranscript ? `${transcript} ${interimTranscript}` : transcript}
                                     onChange={(e) => setTranscript(e.target.value)}
-                                    className="flex-1 bg-transparent border-none outline-none text-base text-white placeholder:text-slate-500 px-2 font-medium"
-                                    placeholder="Type your answer here..."
+                                    className="flex-1 bg-transparent border-none outline-none text-[15px] text-white placeholder:text-slate-500 px-4 font-medium"
+                                    placeholder="Type your answer manually..."
                                     onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                                 />
                             ) : (
-                                <div className="flex-1 px-4 text-slate-400 text-sm font-medium flex items-center gap-3" onClick={() => setShowTextFallback(true)}>
-                                    {status === 'listening' ? (
-                                        <>
-                                            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-                                            <span className="truncate max-w-[200px] md:max-w-md">{(transcript || interimTranscript) ? `${transcript} ${interimTranscript}` : "Listening... (Speak naturally)"}</span>
-                                        </>
-                                    ) : status === 'processing' ? (
-                                        <span className="flex items-center gap-2"><Loader2 className="animate-spin" size={14} /> processing answer...</span>
-                                    ) : (
-                                        <span>Mic paused - Click to type</span>
-                                    )}
+                                <div className="flex-1 px-4 text-slate-400 text-[15px] font-medium cursor-text truncate" onClick={() => setShowTextFallback(true)}>
+                                    {(transcript || interimTranscript) ? `${transcript} ${interimTranscript}` : "Click here to type, or speak into mic..."}
                                 </div>
                             )}
 
-                            <div className="flex items-center gap-2 shrink-0">
-                                <button onClick={() => setShowTextFallback(!showTextFallback)} className="p-3 hover:bg-white/10 rounded-full text-slate-400 transition-colors"><Keyboard size={20} /></button>
-                                <button onClick={toggleMic} title="Toggle Mic" className={`p-4 rounded-2xl transition-all ${isMicOpen ? 'bg-red-500/10 text-red-500 hover:bg-red-500/20' : 'bg-slate-800 text-slate-400'}`}>
-                                    {isMicOpen ? <Mic size={20} /> : <MicOff size={20} />}
+                            <div className="flex items-center gap-2 shrink-0 border-l border-white/10 pl-3">
+                                <button onClick={() => setShowTextFallback(!showTextFallback)} className="p-3 hover:bg-white/10 rounded-xl text-slate-400 transition-colors" title="Toggle Keyboard">
+                                    <Keyboard size={18} />
                                 </button>
-
-                                {/* MANUAL END BUTTON */}
+                                <button onClick={toggleMic} title="Toggle Mic" className={`p-3 rounded-xl transition-all ${isMicOpen ? 'bg-red-500/10 text-red-500' : 'bg-slate-800 text-slate-400'}`}>
+                                    {isMicOpen ? <Mic size={18} /> : <MicOff size={18} />}
+                                </button>
                                 <button
-                                    onClick={() => {
-                                        console.log("[Interview] Manual termination requested.");
-                                        generateFinalReport(history);
-                                    }}
+                                    onClick={() => { generateFinalReport(history); }}
                                     disabled={status === 'processing' || (status as string) === 'finished'}
-                                    className="p-4 bg-red-600/10 hover:bg-red-600/20 text-red-500 rounded-2xl transition-all border border-red-500/20 group flex items-center gap-2"
-                                    title="End Interview Early"
+                                    className="p-3 bg-red-600/10 hover:bg-red-600/20 text-red-500 rounded-xl transition-all disabled:opacity-50 hidden md:flex items-center gap-2"
+                                    title="End Session Early"
                                 >
-                                    <PhoneOff size={20} />
-                                    <span className="text-xs font-bold hidden md:inline uppercase tracking-tight">End Session</span>
+                                    <PhoneOff size={18} /> 
                                 </button>
-
                                 <button
                                     onClick={() => handleSubmit()}
-                                    disabled={status === 'processing'}
-                                    className="p-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl transition-all shadow-lg shadow-indigo-600/20 disabled:opacity-50"
+                                    disabled={status === 'processing' || (!transcript && !interimTranscript && showTextFallback === false)}
+                                    className="p-3 px-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl transition-all disabled:opacity-50 flex items-center gap-2 font-bold focus:ring border focus:border-indigo-400"
                                 >
-                                    <Send size={20} className={status === 'processing' ? 'animate-pulse' : ''} />
+                                    Send <Send size={16} />
                                 </button>
                             </div>
                         </div>
 
-                        {/* USER WEBCAM (PIP) - REMOVED HIDDEN CLASS FOR ROBUSTNESS */}
-                        <div className="relative w-48 aspect-video bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl shrink-0 group">
-                            <video ref={videoRef} autoPlay muted playsInline className="w-full h-full object-cover transform scale-x-[-1]" />
-                            {errorMsg && <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-xs text-red-400 text-center p-2">{errorMsg}</div>}
-                            {!isCamOpen && !errorMsg && <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-xs text-slate-500 font-bold uppercase tracking-widest text-center">Camera Off</div>}
-                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
