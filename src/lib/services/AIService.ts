@@ -70,7 +70,7 @@ export class AIService {
             }
 
             const genAI = new GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+            const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
             const prompt = `
                 Analyze the following resume text for a candidate applying to ${targetCompany} as a ${targetRole}.
                 
@@ -117,7 +117,7 @@ export class AIService {
         try {
             const apiKey = process.env.GOOGLE_API_KEY;
             const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
-            const model = genAI?.getGenerativeModel({ model: "gemini-2.0-flash" });
+            const model = genAI?.getGenerativeModel({ model: "gemini-flash-latest" });
 
             const isFrontend = targetRole.toLowerCase().includes("frontend");
             const isBackend = targetRole.toLowerCase().includes("backend");

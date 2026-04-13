@@ -23,7 +23,7 @@ export class InterviewService {
 
         try {
             const genAI = new GoogleGenerativeAI(this.apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+            const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
             const prompt = `
                 You are a Senior Technical Recruiter. Generate a detailed Final Interview Report for a candidate applying for: ${role}.
@@ -84,7 +84,7 @@ export class InterviewService {
 
         try {
             const genAI = new GoogleGenerativeAI(this.apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+            const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
             const prompt = `
                 You are Siddharth V., a Senior Technical Recruiter at a top-tier tech firm.
