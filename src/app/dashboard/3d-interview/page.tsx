@@ -1,9 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, Suspense } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { Canvas } from "@react-three/fiber";
-import { Avatar } from "@/components/interview/Avatar";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import {
@@ -11,7 +9,6 @@ import {
     Activity, Gauge, History, ChevronRight,
     Maximize2, Minimize2, Settings2, Volume2, Sparkles, Send, Loader2, Keyboard, RefreshCcw, Power, Play, AlertTriangle, FileText, CheckCircle, BarChart, X
 } from "lucide-react";
-import { OrbitControls } from "@react-three/drei";
 
 export default function ThreeDInterviewPage() {
     const router = useRouter();
@@ -370,19 +367,63 @@ export default function ThreeDInterviewPage() {
 
     return (
         <div className="fixed inset-0 bg-[#050505] text-white flex overflow-hidden z-[100] font-sans selection:bg-indigo-500/30">
-            {/* LEFT SIDE: AVATAR / BACKGROUND */}
-            <div className="hidden md:block md:w-[50%] lg:w-[55%] relative border-r border-white/10 bg-gradient-to-b from-[#1a1a1a] to-[#050505]">
-                <Canvas camera={{ position: [0, 1.53, 0.9], fov: 28 }} shadows>
-                    <ambientLight intensity={2.0} />
-                    <spotLight position={[2, 3, 3]} intensity={2.5} angle={0.5} penumbra={0.8} />
-                    <pointLight position={[-2, 2, 2]} intensity={1.5} color="#c4b5fd" />
-                    <pointLight position={[0, 1.6, 1]} intensity={0.8} color="#e0e7ff" />
-                    <Suspense fallback={null}>
-                        <Avatar isSpeaking={status === 'speaking'} isListening={status === 'listening'} volume={volume} />
-                    </Suspense>
-                    <OrbitControls target={[0, 1.53, 0]} enableZoom={false} enablePan={false} enableRotate={false} />
-                </Canvas>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none" />
+            {/* LEFT SIDE: PHOTOREALISTIC AVATAR */}
+            <div className="hidden md:flex md:w-[50%] lg:w-[55%] relative border-r border-white/10 bg-gradient-to-b from-[#1a1a2e] via-[#16162a] to-[#0a0a15] items-center justify-center overflow-hidden">
+                {/* Ambient background glow */}
+                <div className="absolute inset-0 pointer-events-none">
+                    <div className={`absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full transition-all duration-1000 ${status === 'speaking' ? 'bg-indigo-500/15 scale-110' : 'bg-indigo-500/5 scale-100'}`} style={{ filter: 'blur(100px)' }} />
+                </div>
+
+                {/* Avatar Image Container */}
+                <div className="relative z-10 flex flex-col items-center">
+                    {/* Speaking ring indicator */}
+                    <div className={`relative rounded-full p-1.5 transition-all duration-700 ${status === 'speaking' ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 shadow-[0_0_40px_rgba(99,102,241,0.4)]' : status === 'listening' ? 'bg-gradient-to-r from-emerald-500/50 via-emerald-600/50 to-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.2)]' : 'bg-white/10'}`}>
+                        <div className="relative overflow-hidden rounded-full bg-[#0f0f1a]">
+                            <img
+                                src="/models/interviewer-photo.png"
+                                alt="AI Interviewer"
+                                className="w-56 h-56 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-cover object-top rounded-full"
+                                style={{
+                                    animation: status === 'speaking'
+                                        ? 'subtle-breathe 3s ease-in-out infinite'
+                                        : 'subtle-idle 5s ease-in-out infinite',
+                                }}
+                            />
+                            {/* Speaking overlay pulse */}
+                            {status === 'speaking' && (
+                                <div className="absolute inset-0 rounded-full border-2 border-indigo-400/30 animate-ping" style={{ animationDuration: '2s' }} />
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Name & Status */}
+                    <div className="mt-6 text-center">
+                        <h3 className="text-lg font-bold text-white tracking-wide">AI Interviewer</h3>
+                        <div className="flex items-center justify-center gap-2 mt-2">
+                            <span className={`w-2 h-2 rounded-full ${status === 'speaking' ? 'bg-indigo-500 animate-pulse' : status === 'listening' ? 'bg-emerald-500 animate-pulse' : 'bg-slate-500'}`} />
+                            <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
+                                {status === 'speaking' ? 'Speaking' : status === 'listening' ? 'Listening' : status === 'processing' ? 'Thinking...' : 'Ready'}
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Audio Visualizer when speaking */}
+                    {status === 'speaking' && (
+                        <div className="flex items-end gap-1 mt-4 h-6">
+                            {[...Array(7)].map((_, i) => (
+                                <div
+                                    key={i}
+                                    className="w-1 bg-indigo-400/60 rounded-full"
+                                    style={{
+                                        animation: `audio-bar 0.6s ease-in-out infinite alternate`,
+                                        animationDelay: `${i * 0.08}s`,
+                                        height: '4px',
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
 
                 {/* Live Badge */}
                 {(status !== 'setup' && status !== 'finished') && (
@@ -392,6 +433,22 @@ export default function ThreeDInterviewPage() {
                         </span>
                     </div>
                 )}
+
+                {/* CSS Animations */}
+                <style jsx>{`
+                    @keyframes subtle-breathe {
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.015); }
+                    }
+                    @keyframes subtle-idle {
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.005); }
+                    }
+                    @keyframes audio-bar {
+                        from { height: 4px; }
+                        to { height: 20px; }
+                    }
+                `}</style>
             </div>
 
             {/* RIGHT SIDE: UI PANELS */}
