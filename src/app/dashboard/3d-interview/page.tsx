@@ -372,15 +372,15 @@ export default function ThreeDInterviewPage() {
         <div className="fixed inset-0 bg-[#050505] text-white flex overflow-hidden z-[100] font-sans selection:bg-indigo-500/30">
             {/* LEFT SIDE: 3D AVATAR VIEWPORT */}
             <div className="hidden md:block md:w-[50%] lg:w-[55%] relative border-r border-white/10 bg-gradient-to-b from-[#1a1a1a] to-[#050505] overflow-hidden">
-                <Canvas camera={{ position: [0, 1.4, 1.2], fov: 35 }} shadows>
+                <Canvas camera={{ position: [0, 1.68, 1.1], fov: 22 }} shadows>
                     <ambientLight intensity={2.0} />
-                    <spotLight position={[2, 3, 3]} intensity={2.5} angle={0.5} penumbra={0.8} />
+                    <spotLight position={[2, 4, 3]} intensity={2.5} angle={0.5} penumbra={0.8} />
                     <pointLight position={[-2, 2, 2]} intensity={1.5} color="#c4b5fd" />
-                    <pointLight position={[0, 1.6, 1]} intensity={0.8} color="#e0e7ff" />
+                    <pointLight position={[0, 1.7, 1]} intensity={1.2} color="#e0e7ff" />
                     <Suspense fallback={null}>
                         <Avatar isSpeaking={status === 'speaking'} isListening={status === 'listening'} volume={volume} />
                     </Suspense>
-                    <OrbitControls target={[0, 1.45, 0]} enableZoom={false} enablePan={false} enableRotate={false} />
+                    <OrbitControls target={[0, 1.58, 0]} enableZoom={false} enablePan={false} enableRotate={false} />
                 </Canvas>
 
                 {/* Ambient background glow overlay */}

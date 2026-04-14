@@ -82,15 +82,15 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
         const t = state.clock.getElapsedTime();
 
         // ─── FORCE PROFESSIONAL POSE (Every Frame) ───
-        // Arms straight down at sides to avoid T-pose
+        // Arms closer to the body
         if (rightArm.current) {
-            rightArm.current.rotation.set(0, 0, -Math.PI * 0.45); // Drop arm down
+            rightArm.current.rotation.set(0, 0, -Math.PI * 0.48); // More vertical
         }
         if (leftArm.current) {
-            leftArm.current.rotation.set(0, 0, Math.PI * 0.45); // Drop arm down
+            leftArm.current.rotation.set(0, 0, Math.PI * 0.48); 
         }
-        if (rightForeArm.current) rightForeArm.current.rotation.set(0, 0.4, 0);
-        if (leftForeArm.current) leftForeArm.current.rotation.set(0, -0.4, 0);
+        if (rightForeArm.current) rightForeArm.current.rotation.set(0, 0.5, 0);
+        if (leftForeArm.current) leftForeArm.current.rotation.set(0, -0.5, 0);
 
         // ═══════════════════════════════════════
         // 1. LIP SYNC — using the model's actual viseme morph targets
@@ -127,29 +127,30 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
         });
 
         // ═══════════════════════════════════════
-        // 2. HEAD & NECK — subtle tracking + breathing
+        // 2. HEAD & NECK — aggressive downward tilt for screen eye contact
         // ═══════════════════════════════════════
         const mouseX = state.pointer.x * 0.08;
         const mouseY = state.pointer.y * 0.05;
 
-        // Neck: look STRAIGHT at user, tilt slightly DOWN to look into lens
+        // Neck: tilt DOWN significantly (0.15 rad)
         if (neckBone.current) {
-            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, 0.1 + mouseY * 0.3, 0.04);
+            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, 0.15 + mouseY * 0.3, 0.04);
             neckBone.current.rotation.y = THREE.MathUtils.lerp(neckBone.current.rotation.y, mouseX, 0.04);
             neckBone.current.rotation.z = 0;
         }
 
-        // Head: look AT user
+        // Head: tilt DOWN significantly (0.1 rad base)
         if (headBone.current) {
+            const baseTilt = 0.1;
             if (isSpeaking) {
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0.05 + Math.sin(t * 3.5) * 0.012, 0.06);
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, baseTilt + Math.sin(t * 3.5) * 0.012, 0.06);
                 headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, Math.sin(t * 2) * 0.01, 0.04);
             } else if (isListening) {
                 const nod = Math.sin(t * 1.5) > 0.92 ? 0.04 : 0;
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0.05 + nod, 0.06);
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, baseTilt + nod, 0.06);
                 headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
             } else {
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0.05, 0.04);
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, baseTilt, 0.04);
                 headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
             }
             headBone.current.rotation.z = 0;
