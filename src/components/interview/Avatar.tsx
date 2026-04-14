@@ -16,7 +16,7 @@ useGLTF.preload("/models/model.glb");
 
 const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps & { onError: () => void }) => {
     const group = useRef<THREE.Group>(null);
-    const { scene } = useGLTF("/models/model.glb", true, true, (loader) => {});
+    const { scene } = useGLTF("/models/model.glb");
 
     // Collect all SkinnedMeshes for morph targets (Lip Sync)
     const allMeshes = useRef<THREE.SkinnedMesh[]>([]);
@@ -48,8 +48,10 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
         
         try {
             // Find meshes and bones with ROBUST matching
+            allMeshes.current = []; // Reset on remount
+            
             scene.traverse((obj) => {
-                const name = obj.name.toLowerCase();
+                const name = (obj.name || "").toLowerCase();
                 // Meshes
                 if (obj.type === 'SkinnedMesh') {
                     allMeshes.current.push(obj as THREE.SkinnedMesh);
@@ -72,8 +74,8 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
             scene.position.set(0, 0, 0);
             scene.scale.set(1, 1, 1);
 
-        } catch (e) {
-            console.error("Error setting up avatar rig", e);
+        } catch (e: any) {
+            console.error("Error setting up avatar rig:", e);
             onError();
         }
     }, [scene, onError]);
