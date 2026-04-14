@@ -82,15 +82,15 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
         const t = state.clock.getElapsedTime();
 
         // ─── FORCE PROFESSIONAL POSE (Every Frame) ───
-        // Arms closer to the body
+        // Arms relaxing down by the sides, slightly forward as if resting on a lap/desk
         if (rightArm.current) {
-            rightArm.current.rotation.set(0, 0, -Math.PI * 0.48); // More vertical
+            rightArm.current.rotation.set(0.2, 0, -1.2); 
         }
         if (leftArm.current) {
-            leftArm.current.rotation.set(0, 0, Math.PI * 0.48); 
+            leftArm.current.rotation.set(0.2, 0, 1.2); 
         }
-        if (rightForeArm.current) rightForeArm.current.rotation.set(0, 0.5, 0);
-        if (leftForeArm.current) leftForeArm.current.rotation.set(0, -0.5, 0);
+        if (rightForeArm.current) rightForeArm.current.rotation.set(0, 0, 0);
+        if (leftForeArm.current) leftForeArm.current.rotation.set(0, 0, 0);
 
         // ═══════════════════════════════════════
         // 1. LIP SYNC — using the model's actual viseme morph targets
@@ -127,21 +127,21 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
         });
 
         // ═══════════════════════════════════════
-        // 2. HEAD & NECK — aggressive downward tilt for screen eye contact
+        // 2. HEAD & NECK — direct eye contact with camera
         // ═══════════════════════════════════════
         const mouseX = state.pointer.x * 0.08;
         const mouseY = state.pointer.y * 0.05;
 
-        // Neck: tilt DOWN significantly (0.15 rad)
+        // Neck: neutral base, correcting any upward tilt in the rig
         if (neckBone.current) {
-            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, 0.15 + mouseY * 0.3, 0.04);
+            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, -0.05 + mouseY * 0.3, 0.04);
             neckBone.current.rotation.y = THREE.MathUtils.lerp(neckBone.current.rotation.y, mouseX, 0.04);
             neckBone.current.rotation.z = 0;
         }
 
-        // Head: tilt DOWN significantly (0.1 rad base)
+        // Head: level with the camera so looking straight forward, not up
         if (headBone.current) {
-            const baseTilt = 0.1;
+            const baseTilt = -0.05; // Negative value to tilt head downwards slightly towards user
             if (isSpeaking) {
                 headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, baseTilt + Math.sin(t * 3.5) * 0.012, 0.06);
                 headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, Math.sin(t * 2) * 0.01, 0.04);
