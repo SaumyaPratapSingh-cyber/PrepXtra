@@ -12,15 +12,14 @@ interface AvatarProps {
 }
 
 // Ensure the local GLB is preloaded to avoid lag
-useGLTF.preload("/models/interviewer.glb");
+useGLTF.preload("/models/model.glb");
 
 const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps & { onError: () => void }) => {
     const group = useRef<THREE.Group>(null);
-    const { scene } = useGLTF("/models/interviewer.glb", true, true, (loader) => {});
+    const { scene } = useGLTF("/models/model.glb", true, true, (loader) => {});
 
-    // Refs for Morph Targets (Lip Sync)
-    const headMesh = useRef<THREE.SkinnedMesh | null>(null);
-    const teethMesh = useRef<THREE.SkinnedMesh | null>(null);
+    // Collect all SkinnedMeshes for morph targets (Lip Sync)
+    const allMeshes = useRef<THREE.SkinnedMesh[]>([]);
     
     // Bones — exact names from the model inspection
     const headBone = useRef<THREE.Object3D | null>(null);
@@ -52,8 +51,9 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
             scene.traverse((obj) => {
                 const name = obj.name.toLowerCase();
                 // Meshes
-                if (name.includes('head') && obj.type === 'SkinnedMesh') headMesh.current = obj as THREE.SkinnedMesh;
-                if (name.includes('teeth') && obj.type === 'SkinnedMesh') teethMesh.current = obj as THREE.SkinnedMesh;
+                if (obj.type === 'SkinnedMesh') {
+                    allMeshes.current.push(obj as THREE.SkinnedMesh);
+                }
                 
                 // Bones
                 if (name.endsWith('head')) headBone.current = obj;
@@ -114,16 +114,24 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
             sv.sil = THREE.MathUtils.lerp(sv.sil, 0.05, 0.1);
         }
 
-        [headMesh.current, teethMesh.current].forEach((mesh) => {
+        allMeshes.current.forEach((mesh) => {
             if (!mesh?.morphTargetDictionary || !mesh?.morphTargetInfluences) return;
             const dict = mesh.morphTargetDictionary;
             const inf = mesh.morphTargetInfluences;
 
+            // Oculus Visemes (Ready Player Me)
             if (dict['viseme_aa'] !== undefined) inf[dict['viseme_aa']] = sv.aa;
             if (dict['viseme_O']  !== undefined) inf[dict['viseme_O']]  = sv.O;
             if (dict['viseme_E']  !== undefined) inf[dict['viseme_E']]  = sv.E;
             if (dict['viseme_sil'] !== undefined) inf[dict['viseme_sil']] = sv.sil;
             if (dict['viseme_PP'] !== undefined) inf[dict['viseme_PP']] = Math.max(0, Math.sin(t * 20) * 0.15) * (isSpeaking ? 1 : 0);
+
+            // ARKit Blendshapes (Avaturn / Character Creator)
+            if (dict['jawOpen'] !== undefined) inf[dict['jawOpen']] = sv.aa * 1.5;
+            if (dict['mouthPucker'] !== undefined) inf[dict['mouthPucker']] = sv.O * 2.0;
+            if (dict['mouthSmile'] !== undefined) inf[dict['mouthSmile']] = sv.E;
+            if (dict['mouthClose'] !== undefined) inf[dict['mouthClose']] = sv.sil;
+            if (dict['mouthRollUpper'] !== undefined) inf[dict['mouthRollUpper']] = Math.max(0, Math.sin(t * 20) * 0.15) * (isSpeaking ? 1 : 0);
         });
 
         // ═══════════════════════════════════════
