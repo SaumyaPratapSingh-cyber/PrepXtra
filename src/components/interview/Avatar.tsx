@@ -48,45 +48,27 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
         if (!scene) return;
         
         try {
-            // Find meshes and bones by EXACT name match from model inspection
+            // Find meshes and bones with ROBUST matching
             scene.traverse((obj) => {
-                // Meshes with morph targets
-                if (obj.name === 'Wolf3D_Head') headMesh.current = obj as THREE.SkinnedMesh;
-                if (obj.name === 'Wolf3D_Teeth') teethMesh.current = obj as THREE.SkinnedMesh;
+                const name = obj.name.toLowerCase();
+                // Meshes
+                if (name.includes('head') && obj.type === 'SkinnedMesh') headMesh.current = obj as THREE.SkinnedMesh;
+                if (name.includes('teeth') && obj.type === 'SkinnedMesh') teethMesh.current = obj as THREE.SkinnedMesh;
                 
-                // Bones — exact names from the skeleton
-                if (obj.name === 'Head') headBone.current = obj;
-                if (obj.name === 'Neck') neckBone.current = obj;
-                if (obj.name === 'Spine2') spine2Bone.current = obj;
-                if (obj.name === 'Spine1') spine1Bone.current = obj;
-                if (obj.name === 'LeftArm') leftArm.current = obj;
-                if (obj.name === 'LeftForeArm') leftForeArm.current = obj;
-                if (obj.name === 'RightArm') rightArm.current = obj;
-                if (obj.name === 'RightForeArm') rightForeArm.current = obj;
-                if (obj.name === 'LeftShoulder') leftShoulder.current = obj;
-                if (obj.name === 'RightShoulder') rightShoulder.current = obj;
+                // Bones
+                if (name.endsWith('head')) headBone.current = obj;
+                if (name.endsWith('neck')) neckBone.current = obj;
+                if (name.endsWith('spine2')) spine2Bone.current = obj;
+                if (name.endsWith('spine1')) spine1Bone.current = obj;
+                if (name.endsWith('rightarm')) rightArm.current = obj;
+                if (name.endsWith('leftarm')) leftArm.current = obj;
+                if (name.endsWith('rightforearm')) rightForeArm.current = obj;
+                if (name.endsWith('leftforearm')) leftForeArm.current = obj;
+                if (name.endsWith('rightshoulder')) rightShoulder.current = obj;
+                if (name.endsWith('leftshoulder')) leftShoulder.current = obj;
             });
 
-            // ─── IMMEDIATELY SET POSE ───
-            // Arms straight down at sides (not lerped — instant)
-            if (rightArm.current) {
-                rightArm.current.rotation.set(0, 0, -Math.PI * 0.42); // ~75° down
-            }
-            if (leftArm.current) {
-                leftArm.current.rotation.set(0, 0, Math.PI * 0.42);
-            }
-            if (rightForeArm.current) {
-                rightForeArm.current.rotation.set(0, 0, 0);
-            }
-            if (leftForeArm.current) {
-                leftForeArm.current.rotation.set(0, 0, 0);
-            }
-
-            // Head and neck looking STRAIGHT FORWARD (not up)
-            if (headBone.current) headBone.current.rotation.set(0, 0, 0);
-            if (neckBone.current) neckBone.current.rotation.set(0, 0, 0);
-
-            // Keep model at origin — camera is positioned at chest height in page.tsx
+            // Keep model at origin
             scene.position.set(0, 0, 0);
             scene.scale.set(1, 1, 1);
 
@@ -99,31 +81,39 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
 
+        // ─── FORCE PROFESSIONAL POSE (Every Frame) ───
+        // Arms straight down at sides to avoid T-pose
+        if (rightArm.current) {
+            rightArm.current.rotation.set(0, 0, -Math.PI * 0.45); // Drop arm down
+        }
+        if (leftArm.current) {
+            leftArm.current.rotation.set(0, 0, Math.PI * 0.45); // Drop arm down
+        }
+        if (rightForeArm.current) rightForeArm.current.rotation.set(0, 0.4, 0);
+        if (leftForeArm.current) leftForeArm.current.rotation.set(0, -0.4, 0);
+
         // ═══════════════════════════════════════
         // 1. LIP SYNC — using the model's actual viseme morph targets
         // ═══════════════════════════════════════
         const sv = smoothViseme.current;
 
         if (isSpeaking) {
-            // Create varied speech patterns by combining multiple sine waves
             const pulse1 = Math.max(0, Math.sin(t * 12));
             const pulse2 = Math.max(0, Math.sin(t * 17 + 1.2));
             const pulse3 = Math.max(0, Math.cos(t * 9 + 0.5));
-            const envelope = 0.3 + 0.7 * Math.max(0, Math.sin(t * 3)); // Slower overall pacing
+            const envelope = 0.3 + 0.7 * Math.max(0, Math.sin(t * 3));
 
             sv.aa = THREE.MathUtils.lerp(sv.aa, pulse1 * envelope * 0.6, 0.25);
             sv.O  = THREE.MathUtils.lerp(sv.O,  pulse2 * envelope * 0.4, 0.25);
             sv.E  = THREE.MathUtils.lerp(sv.E,  pulse3 * envelope * 0.35, 0.25);
             sv.sil = THREE.MathUtils.lerp(sv.sil, (1 - envelope) * 0.3, 0.15);
         } else {
-            // Smoothly close mouth when not speaking
             sv.aa  = THREE.MathUtils.lerp(sv.aa, 0, 0.15);
             sv.O   = THREE.MathUtils.lerp(sv.O, 0, 0.15);
             sv.E   = THREE.MathUtils.lerp(sv.E, 0, 0.15);
-            sv.sil = THREE.MathUtils.lerp(sv.sil, 0.05, 0.1); // Slight closed-mouth rest
+            sv.sil = THREE.MathUtils.lerp(sv.sil, 0.05, 0.1);
         }
 
-        // Apply to all meshes that have morph targets
         [headMesh.current, teethMesh.current].forEach((mesh) => {
             if (!mesh?.morphTargetDictionary || !mesh?.morphTargetInfluences) return;
             const dict = mesh.morphTargetDictionary;
@@ -133,43 +123,41 @@ const HumanAvatar = ({ isSpeaking, isListening, volume, onError }: AvatarProps &
             if (dict['viseme_O']  !== undefined) inf[dict['viseme_O']]  = sv.O;
             if (dict['viseme_E']  !== undefined) inf[dict['viseme_E']]  = sv.E;
             if (dict['viseme_sil'] !== undefined) inf[dict['viseme_sil']] = sv.sil;
-            // Add some PP for lip press variation
             if (dict['viseme_PP'] !== undefined) inf[dict['viseme_PP']] = Math.max(0, Math.sin(t * 20) * 0.15) * (isSpeaking ? 1 : 0);
         });
 
         // ═══════════════════════════════════════
         // 2. HEAD & NECK — subtle tracking + breathing
-        //    Camera is a tight headshot so only head/neck/shoulders visible
         // ═══════════════════════════════════════
         const mouseX = state.pointer.x * 0.08;
         const mouseY = state.pointer.y * 0.05;
 
-        // Subtle breathing on upper spine
+        // Neck: look STRAIGHT at user, tilt slightly DOWN to look into lens
+        if (neckBone.current) {
+            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, 0.1 + mouseY * 0.3, 0.04);
+            neckBone.current.rotation.y = THREE.MathUtils.lerp(neckBone.current.rotation.y, mouseX, 0.04);
+            neckBone.current.rotation.z = 0;
+        }
+
+        // Head: look AT user
+        if (headBone.current) {
+            if (isSpeaking) {
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0.05 + Math.sin(t * 3.5) * 0.012, 0.06);
+                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, Math.sin(t * 2) * 0.01, 0.04);
+            } else if (isListening) {
+                const nod = Math.sin(t * 1.5) > 0.92 ? 0.04 : 0;
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0.05 + nod, 0.06);
+                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
+            } else {
+                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0.05, 0.04);
+                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
+            }
+            headBone.current.rotation.z = 0;
+        }
+
         if (spine2Bone.current) {
             const breath = Math.sin(t * 1.8) * 0.005;
             spine2Bone.current.rotation.x = THREE.MathUtils.lerp(spine2Bone.current.rotation.x, breath, 0.06);
-        }
-
-        // Neck: very gentle mouse tracking, head looks FORWARD by default
-        if (neckBone.current) {
-            neckBone.current.rotation.y = THREE.MathUtils.lerp(neckBone.current.rotation.y, mouseX, 0.04);
-            neckBone.current.rotation.x = THREE.MathUtils.lerp(neckBone.current.rotation.x, mouseY * 0.3, 0.04);
-        }
-
-        // Head: small emphasis nods when speaking, gentle nod when listening
-        if (headBone.current) {
-            if (isSpeaking) {
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, Math.sin(t * 3.5) * 0.012, 0.06);
-                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, Math.sin(t * 2) * 0.01, 0.04);
-            } else if (isListening) {
-                // Occasional acknowledging nod
-                const nod = Math.sin(t * 1.5) > 0.92 ? 0.04 : 0;
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, nod, 0.06);
-                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
-            } else {
-                headBone.current.rotation.x = THREE.MathUtils.lerp(headBone.current.rotation.x, 0, 0.04);
-                headBone.current.rotation.y = THREE.MathUtils.lerp(headBone.current.rotation.y, 0, 0.04);
-            }
         }
     });
 
